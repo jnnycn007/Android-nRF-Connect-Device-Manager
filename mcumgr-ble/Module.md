@@ -1,6 +1,9 @@
 # Module mcumgr-ble
 
-Bluetooth LE transport implementation for Mcu Manager. This module uses the [Android-BLE-Library](https://github.com/NordicSemiconductor/Android-BLE-Library) to handle BLE communication.
+Bluetooth LE transport implementation for Mcu Manager. 
+
+This module uses the [Android-BLE-Library](https://github.com/nordicsemi/Android-BLE-Library) 
+to handle BLE communication.
 
 ## Key Components
 

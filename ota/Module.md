@@ -1,6 +1,8 @@
 # Module ota
 
-The `ota` module provides integration with nRF Cloud Over-the-Air (OTA) firmware update services. It allows checking for the latest firmware releases for a device and downloading them.
+This module provides integration with **nRF Cloud Over-the-Air (OTA)** firmware update services. 
+
+It allows checking for the latest firmware releases for a device and downloading them.
 
 ## Key Components
 

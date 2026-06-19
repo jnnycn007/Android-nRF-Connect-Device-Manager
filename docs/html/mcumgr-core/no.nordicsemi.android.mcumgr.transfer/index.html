@@ -1,0 +1,478 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>no.nordicsemi.android.mcumgr.transfer</title>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../index.html" tabindex="1">
+                    nRF Connect Device Manager
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">3.2.0
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":mcumgr-core/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":mcumgr-core/release" data-filter=":mcumgr-core/release">
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    nRF Connect Device Manager
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="package" id="content" pageids="mcumgr-core::no.nordicsemi.android.mcumgr.transfer////PointingToDeclaration//290092119">
+  <div class="breadcrumbs"><a href="../index.html">mcumgr-core</a><span class="delimiter">/</span><span class="current">no.nordicsemi.android.mcumgr.transfer</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button><button class="section-tab" data-togglable="PROPERTY,EXTENSION_PROPERTY">Properties</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="-76832555%2FClasslikes%2F290092119" anchor-label="CacheUploader" id="-76832555%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cache-uploader/index.html"><span>Cache</span><wbr><span><span>Uploader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-76832555%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-cache-uploader/index.html">CacheUploader</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">suitManager<span class="token operator">: </span><a href="../no.nordicsemi.android.mcumgr.managers/-s-u-i-t-manager/index.html">SUITManager</a><span class="token punctuation">, </span></span><span class="parameter ">partition<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">windowCapacity<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span><span class="token punctuation">, </span></span><span class="parameter ">memoryAlignment<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span></span></span><span class="token punctuation">)</span> : <a href="-uploader/index.html">Uploader</a></div><div class="brief "><p class="paragraph">This uploader is using a <a href="../no.nordicsemi.android.mcumgr.managers/-s-u-i-t-manager/index.html">SUITManager</a> to upload the cache file during device firmware update.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-583799435%2FClasslikes%2F290092119" anchor-label="Download" id="-583799435%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-download/index.html"><span><span>Download</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-583799435%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-download/index.html">Download</a> : <a href="-transfer/index.html">Transfer</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-392286032%2FClasslikes%2F290092119" anchor-label="DownloadCallback" id="-392286032%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-download-callback/index.html"><span>Download</span><wbr><span><span>Callback</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-392286032%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-download-callback/index.html">DownloadCallback</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="734430303%2FClasslikes%2F290092119" anchor-label="EnvelopeUploader" id="734430303%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-envelope-uploader/index.html"><span>Envelope</span><wbr><span><span>Uploader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="734430303%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-envelope-uploader/index.html">EnvelopeUploader</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">suitManager<span class="token operator">: </span><a href="../no.nordicsemi.android.mcumgr.managers/-s-u-i-t-manager/index.html">SUITManager</a><span class="token punctuation">, </span></span><span class="parameter ">envelope<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">windowCapacity<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span><span class="token punctuation">, </span></span><span class="parameter ">memoryAlignment<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span><span class="token punctuation">, </span></span><span class="parameter ">deferInstall<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span></span></span><span class="token punctuation">)</span> : <a href="-uploader/index.html">Uploader</a></div><div class="brief "><p class="paragraph">This uploader is using a <a href="../no.nordicsemi.android.mcumgr.managers/-s-u-i-t-manager/index.html">SUITManager</a> to upload the SUIT Envelope.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1696861481%2FClasslikes%2F290092119" anchor-label="ErrorResponseException" id="-1696861481%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-error-response-exception/index.html"><span>Error</span><wbr><span>Response</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1696861481%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-error-response-exception/index.html">ErrorResponseException</a> : <a href="https://developer.android.com/reference/kotlin/java/lang/IllegalStateException.html">IllegalStateException</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1868674509%2FClasslikes%2F290092119" anchor-label="FileUploader" id="-1868674509%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-file-uploader/index.html"><span>File</span><wbr><span><span>Uploader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1868674509%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-file-uploader/index.html">FileUploader</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">fsManager<span class="token operator">: </span><a href="../no.nordicsemi.android.mcumgr.managers/-fs-manager/index.html">FsManager</a><span class="token punctuation">, </span></span><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">windowCapacity<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span><span class="token punctuation">, </span></span><span class="parameter ">memoryAlignment<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span></span></span><span class="token punctuation">)</span> : <a href="-uploader/index.html">Uploader</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-538835428%2FClasslikes%2F290092119" anchor-label="ImageUploader" id="-538835428%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-image-uploader/index.html"><span>Image</span><wbr><span><span>Uploader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-538835428%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-image-uploader/index.html">ImageUploader</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">imageManager<span class="token operator">: </span><a href="../no.nordicsemi.android.mcumgr.managers/-image-manager/index.html">ImageManager</a><span class="token punctuation">, </span></span><span class="parameter ">imageData<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">image<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">windowCapacity<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span><span class="token punctuation">, </span></span><span class="parameter ">memoryAlignment<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span></span></span><span class="token punctuation">)</span> : <a href="-uploader/index.html">Uploader</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2034970655%2FClasslikes%2F290092119" anchor-label="ResourceUploader" id="-2034970655%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-resource-uploader/index.html"><span>Resource</span><wbr><span><span>Uploader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2034970655%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-resource-uploader/index.html">ResourceUploader</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">suitManager<span class="token operator">: </span><a href="../no.nordicsemi.android.mcumgr.managers/-s-u-i-t-manager/index.html">SUITManager</a><span class="token punctuation">, </span></span><span class="parameter ">sessionId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">windowCapacity<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span><span class="token punctuation">, </span></span><span class="parameter ">memoryAlignment<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span></span></span><span class="token punctuation">)</span> : <a href="-uploader/index.html">Uploader</a></div><div class="brief "><p class="paragraph">This uploader is using a <a href="../no.nordicsemi.android.mcumgr.managers/-s-u-i-t-manager/index.html">SUITManager</a> to upload the resource requested by the device during device firmware update.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1876572971%2FClasslikes%2F290092119" anchor-label="StreamDownload" id="-1876572971%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-stream-download/index.html"><span>Stream</span><wbr><span><span>Download</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1876572971%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-stream-download/index.html">StreamDownload</a> : <a href="-stream-transfer/index.html">StreamTransfer</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="762488848%2FClasslikes%2F290092119" anchor-label="StreamDownloadCallback" id="762488848%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-stream-download-callback/index.html"><span>Stream</span><wbr><span>Download</span><wbr><span><span>Callback</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="762488848%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-stream-download-callback/index.html">StreamDownloadCallback</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-483534126%2FClasslikes%2F290092119" anchor-label="StreamTransfer" id="-483534126%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-stream-transfer/index.html"><span>Stream</span><wbr><span><span>Transfer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-483534126%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-stream-transfer/index.html">StreamTransfer</a> : <a href="-transfer/index.html">Transfer</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2055076740%2FClasslikes%2F290092119" anchor-label="StreamUpload" id="-2055076740%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-stream-upload/index.html"><span>Stream</span><wbr><span><span>Upload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2055076740%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-stream-upload/index.html">StreamUpload</a> : <a href="-stream-transfer/index.html">StreamTransfer</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="809239410%2FClasslikes%2F290092119" anchor-label="Transfer" id="809239410%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-transfer/index.html"><span><span>Transfer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="809239410%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-transfer/index.html">Transfer</a> : <a href="-transfer-callback/index.html">TransferCallback</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1733967718%2FClasslikes%2F290092119" anchor-label="TransferCallable" id="-1733967718%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-transfer-callable/index.html"><span>Transfer</span><wbr><span><span>Callable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1733967718%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-transfer-callable/index.html">TransferCallable</a> : <a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Callable.html">Callable</a><span class="token operator">&lt;</span><a href="-transfer/index.html">Transfer</a><span class="token operator">&gt; </span>, <a href="-transfer-controller/index.html">TransferController</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-664602195%2FClasslikes%2F290092119" anchor-label="TransferCallback" id="-664602195%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-transfer-callback/index.html"><span>Transfer</span><wbr><span><span>Callback</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-664602195%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-transfer-callback/index.html">TransferCallback</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-568929802%2FClasslikes%2F290092119" anchor-label="TransferController" id="-568929802%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-transfer-controller/index.html"><span>Transfer</span><wbr><span><span>Controller</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-568929802%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-transfer-controller/index.html">TransferController</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1510174435%2FClasslikes%2F290092119" anchor-label="TransferManager" id="1510174435%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-transfer-manager/index.html"><span>Transfer</span><wbr><span><span>Manager</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1510174435%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-transfer-manager/index.html">TransferManager</a> : <a href="../no.nordicsemi.android.mcumgr/-mcu-manager/index.html">McuManager</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1128387868%2FClasslikes%2F290092119" anchor-label="Upload" id="1128387868%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-upload/index.html"><span><span>Upload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1128387868%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-upload/index.html">Upload</a> : <a href="-transfer/index.html">Transfer</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1786347863%2FClasslikes%2F290092119" anchor-label="UploadCallback" id="1786347863%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-upload-callback/index.html"><span>Upload</span><wbr><span><span>Callback</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1786347863%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-upload-callback/index.html">UploadCallback</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1155504561%2FClasslikes%2F290092119" anchor-label="Uploader" id="-1155504561%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-uploader/index.html"><span><span>Uploader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1155504561%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-uploader/index.html">Uploader</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">windowCapacity<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">memoryAlignment<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">mtu<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">protocol<span class="token operator">: </span><a href="../no.nordicsemi.android.mcumgr/-mcu-mgr-scheme/index.html">McuMgrScheme</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="287003759%2FClasslikes%2F290092119" anchor-label="UploadProgress" id="287003759%2FClasslikes%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-upload-progress/index.html"><span>Upload</span><wbr><span><span>Progress</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="287003759%2FClasslikes%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-upload-progress/index.html">UploadProgress</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>offset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>size<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>timestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span>System.currentTimeMillis()</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="1713008716%2FProperties%2F290092119" anchor-label="MAX_CHUNK_FAILURES" id="1713008716%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-a-x_-c-h-u-n-k_-f-a-i-l-u-r-e-s.html"><span>MAX_</span><wbr><span>CHUNK_</span><wbr><span>FAILURES</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1713008716%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-a-x_-c-h-u-n-k_-f-a-i-l-u-r-e-s.html">MAX_CHUNK_FAILURES</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">5</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="EXTENSION_FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="1194140480%2FFunctions%2F290092119" anchor-label="windowUpload" id="1194140480%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="window-upload.html"><span>window</span><wbr><span><span>Upload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1194140480%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../no.nordicsemi.android.mcumgr.managers/-image-manager/index.html">ImageManager</a><span class="token punctuation">.</span><a href="window-upload.html"><span class="token function"><strike>windowUpload</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">image<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">windowCapacity<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">memoryAlignment<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">callback<span class="token operator">: </span><a href="-upload-callback/index.html">UploadCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-transfer-controller/index.html">TransferController</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Copyright © 2022 - 2026 Nordic Semiconductor ASA. All Rights Reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

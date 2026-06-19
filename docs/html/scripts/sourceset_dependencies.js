@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":mcumgr-core/release":[],":mcumgr-ble/release":[],":observability/release":[],":ota/release":[]}'

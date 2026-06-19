@@ -1,0 +1,779 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CanonicalCBORFactory</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    nRF Connect Device Manager
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">3.2.0
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":mcumgr-core/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":mcumgr-core/release" data-filter=":mcumgr-core/release">
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    nRF Connect Device Manager
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="mcumgr-core::no.nordicsemi.android.mcumgr.util/CanonicalCBORFactory///PointingToDeclaration//290092119">
+  <div class="breadcrumbs"><a href="../../index.html">mcumgr-core</a><span class="delimiter">/</span><a href="../index.html">no.nordicsemi.android.mcumgr.util</a><span class="delimiter">/</span><span class="current">CanonicalCBORFactory</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Canonical</span><wbr><span><span>CBORFactory</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">CanonicalCBORFactory</a> : <span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORFactory///PointingToDeclaration/">CBORFactory</span></div><p class="paragraph">This class is a copy of <span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORFactory///PointingToDeclaration/">CBORFactory</span> with the only difference that it returns <a href="../-canonical-c-b-o-r-generator/index.html">CanonicalCBORGenerator</a> instead of <span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORGenerator///PointingToDeclaration/">CBORGenerator</span>.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="-403395957%2FConstructors%2F290092119" anchor-label="CanonicalCBORFactory" id="-403395957%2FConstructors%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-canonical-c-b-o-r-factory.html"><span>Canonical</span><wbr><span><span>CBORFactory</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-403395957%2FConstructors%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="1646006417%2FProperties%2F290092119" anchor-label="DEFAULT_QUOTE_CHAR" id="1646006417%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1646006417%2FProperties%2F290092119"><span>DEFAULT_</span><wbr><span>QUOTE_</span><wbr><span>CHAR</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1646006417%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1646006417%2FProperties%2F290092119">DEFAULT_QUOTE_CHAR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/index.html">Char</a><span class="token operator"> = </span><span class="token string">"""</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1111810768%2FProperties%2F290092119" anchor-label="DEFAULT_ROOT_VALUE_SEPARATOR" id="1111810768%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1111810768%2FProperties%2F290092119"><span>DEFAULT_</span><wbr><span>ROOT_</span><wbr><span>VALUE_</span><wbr><span>SEPARATOR</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1111810768%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1111810768%2FProperties%2F290092119">DEFAULT_ROOT_VALUE_SEPARATOR</a><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/SerializableString///PointingToDeclaration/">SerializableString</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1060882425%2FProperties%2F290092119" anchor-label="FORMAT_NAME" id="1060882425%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1060882425%2FProperties%2F290092119"><span>FORMAT_</span><wbr><span>NAME</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1060882425%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1060882425%2FProperties%2F290092119">FORMAT_NAME</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"CBOR"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1943776852%2FProperties%2F290092119" anchor-label="FORMAT_NAME_JSON" id="1943776852%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1943776852%2FProperties%2F290092119"><span>FORMAT_</span><wbr><span>NAME_</span><wbr><span>JSON</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1943776852%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1943776852%2FProperties%2F290092119">FORMAT_NAME_JSON</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"JSON"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="2038892178%2FFunctions%2F290092119" anchor-label="_getBufferRecycler" id="2038892178%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2038892178%2FFunctions%2F290092119"><span>_</span><wbr><span>get</span><wbr><span>Buffer</span><wbr><span><span>Recycler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2038892178%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#2038892178%2FFunctions%2F290092119"><span class="token function">_getBufferRecycler</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core.util/BufferRecycler///PointingToDeclaration/">BufferRecycler</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1424292316%2FFunctions%2F290092119" anchor-label="builder" id="1424292316%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#873842743%2FFunctions%2F290092119"><span><span>builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1424292316%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#873842743%2FFunctions%2F290092119"><span class="token function">builder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/TSFBuilder///PointingToDeclaration/">TSFBuilder</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1667745103%2FFunctions%2F290092119"><span class="token function">builder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORFactoryBuilder///PointingToDeclaration/">CBORFactoryBuilder</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1043485519%2FFunctions%2F290092119" anchor-label="canHandleBinaryNatively" id="1043485519%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1043485519%2FFunctions%2F290092119"><span>can</span><wbr><span>Handle</span><wbr><span>Binary</span><wbr><span><span>Natively</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1043485519%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1043485519%2FFunctions%2F290092119"><span class="token function">canHandleBinaryNatively</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-614151591%2FFunctions%2F290092119" anchor-label="canParseAsync" id="-614151591%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-614151591%2FFunctions%2F290092119"><span>can</span><wbr><span>Parse</span><wbr><span><span>Async</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-614151591%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-614151591%2FFunctions%2F290092119"><span class="token function">canParseAsync</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1524213465%2FFunctions%2F290092119" anchor-label="canUseCharArrays" id="-1524213465%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1524213465%2FFunctions%2F290092119"><span>can</span><wbr><span>Use</span><wbr><span>Char</span><wbr><span><span>Arrays</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1524213465%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1524213465%2FFunctions%2F290092119"><span class="token function">canUseCharArrays</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="682805267%2FFunctions%2F290092119" anchor-label="canUseSchema" id="682805267%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#682805267%2FFunctions%2F290092119"><span>can</span><wbr><span>Use</span><wbr><span><span>Schema</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="682805267%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#682805267%2FFunctions%2F290092119"><span class="token function">canUseSchema</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">schema<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/FormatSchema///PointingToDeclaration/">FormatSchema</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1917077641%2FFunctions%2F290092119" anchor-label="configure" id="1917077641%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-307948316%2FFunctions%2F290092119"><span><span>configure</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1917077641%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#-307948316%2FFunctions%2F290092119"><span class="token function">configure</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">f<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory.Feature///PointingToDeclaration/">JsonFactory.Feature</span><span class="token punctuation">, </span></span><span class="parameter ">state<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory///PointingToDeclaration/">JsonFactory</span></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#2026664753%2FFunctions%2F290092119"><span class="token function">configure</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">f<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORParser.Feature///PointingToDeclaration/">CBORParser.Feature</span><span class="token punctuation">, </span></span><span class="parameter ">state<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORFactory///PointingToDeclaration/">CBORFactory</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1679762382%2FFunctions%2F290092119" anchor-label="copy" id="-1679762382%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#204936787%2FFunctions%2F290092119"><span><span>copy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1679762382%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#204936787%2FFunctions%2F290092119"><span class="token function">copy</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory///PointingToDeclaration/">JsonFactory</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1521727975%2FFunctions%2F290092119"><span class="token function">copy</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORFactory///PointingToDeclaration/">CBORFactory</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="993407806%2FFunctions%2F290092119" anchor-label="createGenerator" id="993407806%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#454463231%2FFunctions%2F290092119"><span>create</span><wbr><span><span>Generator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="993407806%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#454463231%2FFunctions%2F290092119"><span class="token function">createGenerator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">out<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/OutputStream.html">OutputStream</a><span class="token punctuation">, </span></span><span class="parameter ">enc<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonEncoding///PointingToDeclaration/">JsonEncoding</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="create-generator.html"><span class="token function">createGenerator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">out<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/OutputStream.html">OutputStream</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORGenerator///PointingToDeclaration/">CBORGenerator</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="create-generator.html"><span class="token function">createGenerator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">out<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/OutputStream.html">OutputStream</a><span class="token punctuation">, </span></span><span class="parameter ">enc<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonEncoding///PointingToDeclaration/">JsonEncoding</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORGenerator///PointingToDeclaration/">CBORGenerator</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1923862137%2FFunctions%2F290092119" anchor-label="createJsonGenerator" id="-1923862137%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1923862137%2FFunctions%2F290092119"><span>create</span><wbr><span>Json</span><wbr><span><span>Generator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1923862137%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1923862137%2FFunctions%2F290092119"><span class="token function">createJsonGenerator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">out<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/OutputStream.html">OutputStream</a><span class="token punctuation">, </span></span><span class="parameter ">enc<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonEncoding///PointingToDeclaration/">JsonEncoding</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="198392109%2FFunctions%2F290092119" anchor-label="createJsonParser" id="198392109%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#198392109%2FFunctions%2F290092119"><span>create</span><wbr><span>Json</span><wbr><span><span>Parser</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="198392109%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#198392109%2FFunctions%2F290092119"><span class="token function">createJsonParser</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">f<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/File.html">File</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonParser///PointingToDeclaration/">JsonParser</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1320304542%2FFunctions%2F290092119" anchor-label="createNonBlockingByteArrayParser" id="1320304542%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1320304542%2FFunctions%2F290092119"><span>create</span><wbr><span>Non</span><wbr><span>Blocking</span><wbr><span>Byte</span><wbr><span>Array</span><wbr><span><span>Parser</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1320304542%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1320304542%2FFunctions%2F290092119"><span class="token function">createNonBlockingByteArrayParser</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonParser///PointingToDeclaration/">JsonParser</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1526545394%2FFunctions%2F290092119" anchor-label="createParser" id="1526545394%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1401504075%2FFunctions%2F290092119"><span>create</span><wbr><span><span>Parser</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1526545394%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1401504075%2FFunctions%2F290092119"><span class="token function">createParser</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">f<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/File.html">File</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonParser///PointingToDeclaration/">JsonParser</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1133752453%2FFunctions%2F290092119"><span class="token function">createParser</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">f<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/File.html">File</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORParser///PointingToDeclaration/">CBORParser</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1069944463%2FFunctions%2F290092119" anchor-label="disable" id="1069944463%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-444172249%2FFunctions%2F290092119"><span><span>disable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1069944463%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-444172249%2FFunctions%2F290092119"><span class="token function">disable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">f<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory.Feature///PointingToDeclaration/">JsonFactory.Feature</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory///PointingToDeclaration/">JsonFactory</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-342129548%2FFunctions%2F290092119"><span class="token function">disable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">f<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORParser.Feature///PointingToDeclaration/">CBORParser.Feature</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORFactory///PointingToDeclaration/">CBORFactory</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1071259099%2FFunctions%2F290092119" anchor-label="enable" id="-1071259099%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1928875870%2FFunctions%2F290092119"><span><span>enable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1071259099%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1928875870%2FFunctions%2F290092119"><span class="token function">enable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">f<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory.Feature///PointingToDeclaration/">JsonFactory.Feature</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory///PointingToDeclaration/">JsonFactory</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#433106683%2FFunctions%2F290092119"><span class="token function">enable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">f<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORParser.Feature///PointingToDeclaration/">CBORParser.Feature</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORFactory///PointingToDeclaration/">CBORFactory</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1453820083%2FFunctions%2F290092119" anchor-label="getCharacterEscapes" id="1453820083%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1453820083%2FFunctions%2F290092119"><span>get</span><wbr><span>Character</span><wbr><span><span>Escapes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1453820083%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1453820083%2FFunctions%2F290092119"><span class="token function">getCharacterEscapes</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core.io/CharacterEscapes///PointingToDeclaration/">CharacterEscapes</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="930410568%2FFunctions%2F290092119" anchor-label="getCodec" id="930410568%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#930410568%2FFunctions%2F290092119"><span>get</span><wbr><span><span>Codec</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="930410568%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#930410568%2FFunctions%2F290092119"><span class="token function">getCodec</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/ObjectCodec///PointingToDeclaration/">ObjectCodec</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1885068853%2FFunctions%2F290092119" anchor-label="getFormatGeneratorFeatures" id="-1885068853%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1885068853%2FFunctions%2F290092119"><span>get</span><wbr><span>Format</span><wbr><span>Generator</span><wbr><span><span>Features</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1885068853%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1885068853%2FFunctions%2F290092119"><span class="token function">getFormatGeneratorFeatures</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-754272620%2FFunctions%2F290092119" anchor-label="getFormatName" id="-754272620%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-754272620%2FFunctions%2F290092119"><span>get</span><wbr><span>Format</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-754272620%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-754272620%2FFunctions%2F290092119"><span class="token function">getFormatName</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1510105667%2FFunctions%2F290092119" anchor-label="getFormatParserFeatures" id="1510105667%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1510105667%2FFunctions%2F290092119"><span>get</span><wbr><span>Format</span><wbr><span>Parser</span><wbr><span><span>Features</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1510105667%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1510105667%2FFunctions%2F290092119"><span class="token function">getFormatParserFeatures</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="183563186%2FFunctions%2F290092119" anchor-label="getFormatReadFeatureType" id="183563186%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1875094501%2FFunctions%2F290092119"><span>get</span><wbr><span>Format</span><wbr><span>Read</span><wbr><span>Feature</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="183563186%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1875094501%2FFunctions%2F290092119"><span class="token function">getFormatReadFeatureType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="com.fasterxml.jackson.core/FormatFeature///PointingToDeclaration/">FormatFeature</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1607342879%2FFunctions%2F290092119"><span class="token function">getFormatReadFeatureType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORParser.Feature///PointingToDeclaration/">CBORParser.Feature</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1089802838%2FFunctions%2F290092119" anchor-label="getFormatWriteFeatureType" id="1089802838%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-828628236%2FFunctions%2F290092119"><span>get</span><wbr><span>Format</span><wbr><span>Write</span><wbr><span>Feature</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1089802838%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-828628236%2FFunctions%2F290092119"><span class="token function">getFormatWriteFeatureType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="com.fasterxml.jackson.core/FormatFeature///PointingToDeclaration/">FormatFeature</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1118262546%2FFunctions%2F290092119"><span class="token function">getFormatWriteFeatureType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORGenerator.Feature///PointingToDeclaration/">CBORGenerator.Feature</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1285077010%2FFunctions%2F290092119" anchor-label="getGeneratorFeatures" id="-1285077010%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1285077010%2FFunctions%2F290092119"><span>get</span><wbr><span>Generator</span><wbr><span><span>Features</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1285077010%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#-1285077010%2FFunctions%2F290092119"><span class="token function">getGeneratorFeatures</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1255339381%2FFunctions%2F290092119" anchor-label="getInputDecorator" id="-1255339381%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1255339381%2FFunctions%2F290092119"><span>get</span><wbr><span>Input</span><wbr><span><span>Decorator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1255339381%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1255339381%2FFunctions%2F290092119"><span class="token function">getInputDecorator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core.io/InputDecorator///PointingToDeclaration/">InputDecorator</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="836516708%2FFunctions%2F290092119" anchor-label="getOutputDecorator" id="836516708%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#836516708%2FFunctions%2F290092119"><span>get</span><wbr><span>Output</span><wbr><span><span>Decorator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="836516708%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#836516708%2FFunctions%2F290092119"><span class="token function">getOutputDecorator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core.io/OutputDecorator///PointingToDeclaration/">OutputDecorator</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1140762368%2FFunctions%2F290092119" anchor-label="getParserFeatures" id="1140762368%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1140762368%2FFunctions%2F290092119"><span>get</span><wbr><span>Parser</span><wbr><span><span>Features</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1140762368%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#1140762368%2FFunctions%2F290092119"><span class="token function">getParserFeatures</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-971413434%2FFunctions%2F290092119" anchor-label="getRootValueSeparator" id="-971413434%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-971413434%2FFunctions%2F290092119"><span>get</span><wbr><span>Root</span><wbr><span>Value</span><wbr><span><span>Separator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-971413434%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-971413434%2FFunctions%2F290092119"><span class="token function">getRootValueSeparator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="976683686%2FFunctions%2F290092119" anchor-label="hasFormat" id="976683686%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#976683686%2FFunctions%2F290092119"><span>has</span><wbr><span><span>Format</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="976683686%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#976683686%2FFunctions%2F290092119"><span class="token function">hasFormat</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">acc<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core.format/InputAccessor///PointingToDeclaration/">InputAccessor</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core.format/MatchStrength///PointingToDeclaration/">MatchStrength</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2044720325%2FFunctions%2F290092119" anchor-label="isEnabled" id="2044720325%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2044720325%2FFunctions%2F290092119"><span>is</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2044720325%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#2044720325%2FFunctions%2F290092119"><span class="token function">isEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">f<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORParser.Feature///PointingToDeclaration/">CBORParser.Feature</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2098333476%2FFunctions%2F290092119" anchor-label="rebuild" id="-2098333476%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#51226551%2FFunctions%2F290092119"><span><span>rebuild</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2098333476%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#51226551%2FFunctions%2F290092119"><span class="token function">rebuild</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/TSFBuilder///PointingToDeclaration/">TSFBuilder</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1804606001%2FFunctions%2F290092119"><span class="token function">rebuild</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.dataformat.cbor/CBORFactoryBuilder///PointingToDeclaration/">CBORFactoryBuilder</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="183323963%2FFunctions%2F290092119" anchor-label="requiresCustomCodec" id="183323963%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#183323963%2FFunctions%2F290092119"><span>requires</span><wbr><span>Custom</span><wbr><span><span>Codec</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="183323963%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#183323963%2FFunctions%2F290092119"><span class="token function">requiresCustomCodec</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-601410063%2FFunctions%2F290092119" anchor-label="requiresPropertyOrdering" id="-601410063%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-601410063%2FFunctions%2F290092119"><span>requires</span><wbr><span>Property</span><wbr><span><span>Ordering</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-601410063%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-601410063%2FFunctions%2F290092119"><span class="token function">requiresPropertyOrdering</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="278890589%2FFunctions%2F290092119" anchor-label="setCharacterEscapes" id="278890589%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#278890589%2FFunctions%2F290092119"><span>set</span><wbr><span>Character</span><wbr><span><span>Escapes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="278890589%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#278890589%2FFunctions%2F290092119"><span class="token function">setCharacterEscapes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">esc<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core.io/CharacterEscapes///PointingToDeclaration/">CharacterEscapes</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory///PointingToDeclaration/">JsonFactory</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1513286492%2FFunctions%2F290092119" anchor-label="setCodec" id="-1513286492%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1513286492%2FFunctions%2F290092119"><span>set</span><wbr><span><span>Codec</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1513286492%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1513286492%2FFunctions%2F290092119"><span class="token function">setCodec</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">oc<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/ObjectCodec///PointingToDeclaration/">ObjectCodec</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory///PointingToDeclaration/">JsonFactory</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1374861171%2FFunctions%2F290092119" anchor-label="setInputDecorator" id="-1374861171%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1374861171%2FFunctions%2F290092119"><span>set</span><wbr><span>Input</span><wbr><span><span>Decorator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1374861171%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1374861171%2FFunctions%2F290092119"><span class="token function">setInputDecorator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">d<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core.io/InputDecorator///PointingToDeclaration/">InputDecorator</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory///PointingToDeclaration/">JsonFactory</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="787588153%2FFunctions%2F290092119" anchor-label="setOutputDecorator" id="787588153%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#787588153%2FFunctions%2F290092119"><span>set</span><wbr><span>Output</span><wbr><span><span>Decorator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="787588153%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#787588153%2FFunctions%2F290092119"><span class="token function">setOutputDecorator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">d<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core.io/OutputDecorator///PointingToDeclaration/">OutputDecorator</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory///PointingToDeclaration/">JsonFactory</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2062286411%2FFunctions%2F290092119" anchor-label="setRootValueSeparator" id="-2062286411%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-2062286411%2FFunctions%2F290092119"><span>set</span><wbr><span>Root</span><wbr><span>Value</span><wbr><span><span>Separator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2062286411%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-2062286411%2FFunctions%2F290092119"><span class="token function">setRootValueSeparator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sep<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonFactory///PointingToDeclaration/">JsonFactory</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="49052692%2FFunctions%2F290092119" anchor-label="version" id="49052692%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#49052692%2FFunctions%2F290092119"><span><span>version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="49052692%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#49052692%2FFunctions%2F290092119"><span class="token function">version</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/Version///PointingToDeclaration/">Version</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Copyright © 2022 - 2026 Nordic Semiconductor ASA. All Rights Reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

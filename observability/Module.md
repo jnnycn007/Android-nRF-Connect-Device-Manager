@@ -1,6 +1,9 @@
 # Module observability
 
-The `observability` module provides integration with nRF Cloud Monitoring & Diagnostics Service (MDS). It allows devices to upload binary "chunks" of data (e.g., logs, core dumps) to the cloud via the mobile app.
+Integration with **nRF Cloud Monitoring & Diagnostics Service (MDS)**. 
+
+This module allows devices to upload binary "chunks" of data (e.g., logs, core dumps) to the 
+nRF Cloud via the mobile app using Bluetooth LE as transport protocol.
 
 ## Key Components
 

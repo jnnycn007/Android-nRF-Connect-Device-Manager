@@ -1,6 +1,9 @@
 # Module mcumgr-core
 
-The `mcumgr-core` module provides the core logic for the Mcu Manager library. It defines the base transport interface, the protocol managers, and the response data structures used to communicate with devices running nRF Connect SDK, Zephyr, or Apache Mynewt.
+Core functionality of the Mcu Manager library. 
+
+This module defines the base transport interface, the protocol managers, and the response data structures 
+used to communicate with devices running nRF Connect SDK, Zephyr, or Apache Mynewt.
 
 ## Key Components
 

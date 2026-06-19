@@ -1,0 +1,674 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>McuMgrBleTransport</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    nRF Connect Device Manager
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">3.2.0
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":mcumgr-ble/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":mcumgr-ble/release" data-filter=":mcumgr-ble/release">
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    nRF Connect Device Manager
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="mcumgr-ble::no.nordicsemi.android.mcumgr.ble/McuMgrBleTransport///PointingToDeclaration//1747730993">
+  <div class="breadcrumbs"><a href="../../index.html">mcumgr-ble</a><span class="delimiter">/</span><a href="../index.html">no.nordicsemi.android.mcumgr.ble</a><span class="delimiter">/</span><span class="current">McuMgrBleTransport</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Mcu</span><wbr><span>Mgr</span><wbr><span>Ble</span><wbr><span><span>Transport</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">McuMgrBleTransport</a> : <span data-unresolved-link="no.nordicsemi.android.ble/BleManager///PointingToDeclaration/">BleManager</span>, <a href="../../../mcumgr-core/no.nordicsemi.android.mcumgr/-mcu-mgr-transport/index.html">McuMgrTransport</a></div><p class="paragraph">The McuMgrBleTransport is an implementation for the <a href="../../../mcumgr-core/no.nordicsemi.android.mcumgr/-mcu-mgr-scheme/-b-l-e/index.html">BLE</a> transport scheme. This class extends <span data-unresolved-link="no.nordicsemi.android.ble/BleManager///PointingToDeclaration/">BleManager</span>, which handles the BLE state machine and owns the <a href="https://developer.android.com/reference/kotlin/android/bluetooth/BluetoothGatt.html">BluetoothGatt</a> object that executes BLE actions. </p><p class="paragraph"> Starting from version 1.1 it is possible to extend the functionality to support additional services. For that extend the following methods: </p><ul><li><a href="../../../mcumgr-ble/no.nordicsemi.android.mcumgr.ble/-mcu-mgr-ble-transport/is-additional-service-supported.html">isAdditionalServiceSupported</a></li><li><a href="../../../mcumgr-ble/no.nordicsemi.android.mcumgr.ble/-mcu-mgr-ble-transport/initialize-additional-services.html">initializeAdditionalServices</a></li><li><a href="../../../mcumgr-ble/no.nordicsemi.android.mcumgr.ble/-mcu-mgr-ble-transport/on-services-invalidated.html">onServicesInvalidated</a></li></ul></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="7042704%2FConstructors%2F1747730993" anchor-label="McuMgrBleTransport" id="7042704%2FConstructors%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mcu-mgr-ble-transport.html"><span>Mcu</span><wbr><span>Mgr</span><wbr><span>Ble</span><wbr><span><span>Transport</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="7042704%2FConstructors%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>device<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Construct a McuMgrBleTransport object.</div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>device<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>handler<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/os/Handler.html">Handler</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Construct a McuMgrBleTransport object with a handler to run the <span data-unresolved-link="no.nordicsemi.android.ble/BleManager///PointingToDeclaration/">BleManager</span> and asynchronous callbacks.</div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>device<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>handler<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/os/Handler.html">Handler</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>uuidConfig<span class="token operator">: </span><a href="../-uuid-config/index.html">UuidConfig</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Construct a McuMgrBleTransport object with a handler to run the <span data-unresolved-link="no.nordicsemi.android.ble/BleManager///PointingToDeclaration/">BleManager</span> and asynchronous callbacks.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="933449420%2FProperties%2F1747730993" anchor-label="bondingObserver" id="933449420%2FProperties%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#933449420%2FProperties%2F1747730993"><span>bonding</span><wbr><span><span>Observer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="933449420%2FProperties%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="index.html#933449420%2FProperties%2F1747730993">bondingObserver</a><span class="token operator">: </span><span data-unresolved-link="no.nordicsemi.android.ble.observer/BondingObserver///PointingToDeclaration/">BondingObserver</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1359802299%2FProperties%2F1747730993" anchor-label="connectionObserver" id="-1359802299%2FProperties%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1359802299%2FProperties%2F1747730993"><span>connection</span><wbr><span><span>Observer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1359802299%2FProperties%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="index.html#-1359802299%2FProperties%2F1747730993">connectionObserver</a><span class="token operator">: </span><span data-unresolved-link="no.nordicsemi.android.ble.observer/ConnectionObserver///PointingToDeclaration/">ConnectionObserver</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-786202376%2FProperties%2F1747730993" anchor-label="PAIRING_VARIANT_CONSENT" id="-786202376%2FProperties%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-786202376%2FProperties%2F1747730993"><span>PAIRING_</span><wbr><span>VARIANT_</span><wbr><span>CONSENT</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-786202376%2FProperties%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#-786202376%2FProperties%2F1747730993">PAIRING_VARIANT_CONSENT</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">3</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-610905631%2FProperties%2F1747730993" anchor-label="PAIRING_VARIANT_DISPLAY_PASSKEY" id="-610905631%2FProperties%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-610905631%2FProperties%2F1747730993"><span>PAIRING_</span><wbr><span>VARIANT_</span><wbr><span>DISPLAY_</span><wbr><span>PASSKEY</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-610905631%2FProperties%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#-610905631%2FProperties%2F1747730993">PAIRING_VARIANT_DISPLAY_PASSKEY</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">4</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1335551962%2FProperties%2F1747730993" anchor-label="PAIRING_VARIANT_DISPLAY_PIN" id="1335551962%2FProperties%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1335551962%2FProperties%2F1747730993"><span>PAIRING_</span><wbr><span>VARIANT_</span><wbr><span>DISPLAY_</span><wbr><span>PIN</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1335551962%2FProperties%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1335551962%2FProperties%2F1747730993">PAIRING_VARIANT_DISPLAY_PIN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">5</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1014981813%2FProperties%2F1747730993" anchor-label="PAIRING_VARIANT_OOB_CONSENT" id="1014981813%2FProperties%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1014981813%2FProperties%2F1747730993"><span>PAIRING_</span><wbr><span>VARIANT_</span><wbr><span>OOB_</span><wbr><span>CONSENT</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1014981813%2FProperties%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1014981813%2FProperties%2F1747730993">PAIRING_VARIANT_OOB_CONSENT</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">6</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1149655780%2FProperties%2F1747730993" anchor-label="PAIRING_VARIANT_PASSKEY" id="1149655780%2FProperties%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1149655780%2FProperties%2F1747730993"><span>PAIRING_</span><wbr><span>VARIANT_</span><wbr><span>PASSKEY</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1149655780%2FProperties%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1149655780%2FProperties%2F1747730993">PAIRING_VARIANT_PASSKEY</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1585931362%2FProperties%2F1747730993" anchor-label="PAIRING_VARIANT_PASSKEY_CONFIRMATION" id="1585931362%2FProperties%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1585931362%2FProperties%2F1747730993"><span>PAIRING_</span><wbr><span>VARIANT_</span><wbr><span>PASSKEY_</span><wbr><span><span>CONFIRMATION</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1585931362%2FProperties%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1585931362%2FProperties%2F1747730993">PAIRING_VARIANT_PASSKEY_CONFIRMATION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">2</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="312863325%2FProperties%2F1747730993" anchor-label="PAIRING_VARIANT_PIN" id="312863325%2FProperties%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#312863325%2FProperties%2F1747730993"><span>PAIRING_</span><wbr><span>VARIANT_</span><wbr><span>PIN</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="312863325%2FProperties%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#312863325%2FProperties%2F1747730993">PAIRING_VARIANT_PIN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1710942485%2FProperties%2F1747730993" anchor-label="SMP_SERVICE_UUID" id="-1710942485%2FProperties%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-s-m-p_-s-e-r-v-i-c-e_-u-u-i-d.html"><span>SMP_</span><wbr><span>SERVICE_</span><wbr><span>UUID</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1710942485%2FProperties%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-s-m-p_-s-e-r-v-i-c-e_-u-u-i-d.html"><strike>SMP_SERVICE_UUID</strike></a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/UUID.html">UUID</a></div><div class="brief ">The SMP service UUID.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-375868778%2FFunctions%2F1747730993" anchor-label="addObserver" id="-375868778%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-observer.html"><span>add</span><wbr><span><span>Observer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-375868778%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="add-observer.html"><span class="token function">addObserver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>observer<span class="token operator">: </span><a href="../../../mcumgr-core/no.nordicsemi.android.mcumgr/-mcu-mgr-transport/-connection-observer/index.html">McuMgrTransport.ConnectionObserver</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="465735506%2FFunctions%2F1747730993" anchor-label="attachClientConnection" id="465735506%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#465735506%2FFunctions%2F1747730993"><span>attach</span><wbr><span>Client</span><wbr><span><span>Connection</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="465735506%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#465735506%2FFunctions%2F1747730993"><span class="token function">attachClientConnection</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">client<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="462326878%2FFunctions%2F1747730993" anchor-label="changeMode" id="462326878%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="change-mode.html"><span>change</span><wbr><span><span>Mode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="462326878%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="change-mode.html"><span class="token function">changeMode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>name<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>callback<span class="token operator">: </span><a href="../../../mcumgr-core/no.nordicsemi.android.mcumgr/-mcu-mgr-transport/-mode-change-callback/index.html">McuMgrTransport.ModeChangeCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="962357609%2FFunctions%2F1747730993" anchor-label="close" id="962357609%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#962357609%2FFunctions%2F1747730993"><span><span>close</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="962357609%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#962357609%2FFunctions%2F1747730993"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-915318688%2FFunctions%2F1747730993" anchor-label="connect" id="-915318688%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2083304710%2FFunctions%2F1747730993"><span><span>connect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-915318688%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#2083304710%2FFunctions%2F1747730993"><span class="token function">connect</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="no.nordicsemi.android.ble/ConnectRequest///PointingToDeclaration/">ConnectRequest</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="connect.html"><span class="token function">connect</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>callback<span class="token operator">: </span><a href="../../../mcumgr-core/no.nordicsemi.android.mcumgr/-mcu-mgr-transport/-connection-callback/index.html">McuMgrTransport.ConnectionCallback</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-272319363%2FFunctions%2F1747730993" anchor-label="disconnect" id="-272319363%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-272319363%2FFunctions%2F1747730993"><span><span>disconnect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-272319363%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#-272319363%2FFunctions%2F1747730993"><span class="token function">disconnect</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="no.nordicsemi.android.ble/DisconnectRequest///PointingToDeclaration/">DisconnectRequest</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1140799801%2FFunctions%2F1747730993" anchor-label="getBatteryValue" id="-1140799801%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1140799801%2FFunctions%2F1747730993"><span>get</span><wbr><span>Battery</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1140799801%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#-1140799801%2FFunctions%2F1747730993"><span class="token function">getBatteryValue</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="71374603%2FFunctions%2F1747730993" anchor-label="getBluetoothDevice" id="71374603%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-bluetooth-device.html"><span>get</span><wbr><span>Bluetooth</span><wbr><span><span>Device</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="71374603%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a></div></div><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-bluetooth-device.html"><span class="token function">getBluetoothDevice</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a></div><div class="brief ">Returns the device set in the constructor.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="349944348%2FFunctions%2F1747730993" anchor-label="getConnectionState" id="349944348%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#349944348%2FFunctions%2F1747730993"><span>get</span><wbr><span>Connection</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="349944348%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#349944348%2FFunctions%2F1747730993"><span class="token function">getConnectionState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1861472163%2FFunctions%2F1747730993" anchor-label="getMaxPacketLength" id="-1861472163%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-max-packet-length.html"><span>get</span><wbr><span>Max</span><wbr><span>Packet</span><wbr><span><span>Length</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1861472163%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-max-packet-length.html"><span class="token function">getMaxPacketLength</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Returns the maximum length of a SMP packet that can be transmitted over by the transport.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1393148555%2FFunctions%2F1747730993" anchor-label="getMinLogPriority" id="-1393148555%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-min-log-priority.html"><span>get</span><wbr><span>Min</span><wbr><span>Log</span><wbr><span><span>Priority</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1393148555%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-min-log-priority.html"><span class="token function">getMinLogPriority</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1979591674%2FFunctions%2F1747730993" anchor-label="getScheme" id="-1979591674%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-scheme.html"><span>get</span><wbr><span><span>Scheme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1979591674%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a></div></div><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-scheme.html"><span class="token function">getScheme</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../mcumgr-core/no.nordicsemi.android.mcumgr/-mcu-mgr-scheme/index.html">McuMgrScheme</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-980603582%2FFunctions%2F1747730993" anchor-label="isConnected" id="-980603582%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-980603582%2FFunctions%2F1747730993"><span>is</span><wbr><span><span>Connected</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-980603582%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#-980603582%2FFunctions%2F1747730993"><span class="token function">isConnected</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1492217576%2FFunctions%2F1747730993" anchor-label="isReady" id="1492217576%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1492217576%2FFunctions%2F1747730993"><span>is</span><wbr><span><span>Ready</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1492217576%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#1492217576%2FFunctions%2F1747730993"><span class="token function">isReady</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1810300444%2FFunctions%2F1747730993" anchor-label="log" id="-1810300444%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="log.html"><span><span>log</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1810300444%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="log.html"><span class="token function">log</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">priority<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>message<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-836090086%2FFunctions%2F1747730993" anchor-label="release" id="-836090086%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="release.html"><span><span>release</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-836090086%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="release.html"><span class="token function">release</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2095121665%2FFunctions%2F1747730993" anchor-label="removeObserver" id="2095121665%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-observer.html"><span>remove</span><wbr><span><span>Observer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2095121665%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="remove-observer.html"><span class="token function">removeObserver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>observer<span class="token operator">: </span><a href="../../../mcumgr-core/no.nordicsemi.android.mcumgr/-mcu-mgr-transport/-connection-observer/index.html">McuMgrTransport.ConnectionObserver</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2072149681%2FFunctions%2F1747730993" anchor-label="requestConnPriority" id="2072149681%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="request-conn-priority.html"><span>request</span><wbr><span>Conn</span><wbr><span><span>Priority</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2072149681%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="request-conn-priority.html"><span class="token function">requestConnPriority</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">priority<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Requests the given connection priority.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-280147961%2FFunctions%2F1747730993" anchor-label="send" id="-280147961%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="send.html"><span><span>send</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-280147961%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a></div></div><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="send.html">T</a><span class="token operator"> : </span><a href="../../../mcumgr-core/no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/index.html">McuMgrResponse</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="send.html"><span class="token function">send</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">timeout<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>responseType<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="send.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="send.html">T</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="send.html">T</a><span class="token operator"> : </span><a href="../../../mcumgr-core/no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/index.html">McuMgrResponse</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="send.html"><span class="token function">send</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">timeout<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>responseType<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="send.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>callback<span class="token operator">: </span><a href="../../../mcumgr-core/no.nordicsemi.android.mcumgr/-mcu-mgr-callback/index.html">McuMgrCallback</a><span class="token operator">&lt;</span><a href="send.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-72011358%2FFunctions%2F1747730993" anchor-label="setDeviceSidePacketMergingSupported" id="-72011358%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-device-side-packet-merging-supported.html"><span>set</span><wbr><span>Device</span><wbr><span>Side</span><wbr><span>Packet</span><wbr><span>Merging</span><wbr><span><span>Supported</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-72011358%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="set-device-side-packet-merging-supported.html"><span class="token function"><strike>setDeviceSidePacketMergingSupported</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">maxLength<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Sets the maximum packet length for the transport.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1820715625%2FFunctions%2F1747730993" anchor-label="setGattCallbacks" id="-1820715625%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1820715625%2FFunctions%2F1747730993"><span>set</span><wbr><span>Gatt</span><wbr><span><span>Callbacks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1820715625%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1820715625%2FFunctions%2F1747730993"><span class="token function">setGattCallbacks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">callbacks<span class="token operator">: </span><span data-unresolved-link="no.nordicsemi.android.ble/BleManagerCallbacks///PointingToDeclaration/">BleManagerCallbacks</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1598425890%2FFunctions%2F1747730993" anchor-label="setInitialMtu" id="-1598425890%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-initial-mtu.html"><span>set</span><wbr><span>Initial</span><wbr><span><span>Mtu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1598425890%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="set-initial-mtu.html"><span class="token function">setInitialMtu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/IntRange.html"><span class="token annotation builtin">IntRange</span></a><span class="token punctuation">(</span><span>from<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">23</span></span><span class="token punctuation">, </span></span><wbr><span>to<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">517</span></span></span><wbr><span class="token punctuation">)</span>&nbsp;</span>mtu<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Sets the initial MTU size to be requested upon connection.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-105549667%2FFunctions%2F1747730993" anchor-label="setLoggingEnabled" id="-105549667%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-logging-enabled.html"><span>set</span><wbr><span>Logging</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-105549667%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="set-logging-enabled.html"><span class="token function">setLoggingEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Allows to enable low-level logging.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2057624298%2FFunctions%2F1747730993" anchor-label="setMaxPacketLength" id="2057624298%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-max-packet-length.html"><span>set</span><wbr><span>Max</span><wbr><span>Packet</span><wbr><span><span>Length</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2057624298%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-max-packet-length.html"><span class="token function">setMaxPacketLength</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">maxLength<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief ">In order to send packets longer than MTU size, this library supports automatic segmentation of packets into at-most-MTU size chunks.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="496421360%2FFunctions%2F1747730993" anchor-label="useServer" id="496421360%2FFunctions%2F1747730993" data-filterable-set=":mcumgr-ble/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-ble/release" data-filterable-set=":mcumgr-ble/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#496421360%2FFunctions%2F1747730993"><span>use</span><wbr><span><span>Server</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="496421360%2FFunctions%2F1747730993"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-ble/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#496421360%2FFunctions%2F1747730993"><span class="token function">useServer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">server<span class="token operator">: </span><span data-unresolved-link="no.nordicsemi.android.ble/BleServerManager///PointingToDeclaration/">BleServerManager</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Copyright © 2022 - 2026 Nordic Semiconductor ASA. All Rights Reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

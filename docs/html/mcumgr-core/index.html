@@ -1,0 +1,615 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>mcumgr-core</title>
+<link href="../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../scripts/sourceset_dependencies.js" async></script>
+<link href="../styles/style.css" rel="Stylesheet">
+<link href="../styles/main.css" rel="Stylesheet">
+<link href="../styles/prism.css" rel="Stylesheet">
+<link href="../styles/logo-styles.css" rel="Stylesheet">
+<link href="../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../scripts/main.js" defer></script>
+<script type="text/javascript" src="../scripts/prism.js" async></script>
+<script type="text/javascript" src="../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../index.html" tabindex="1">
+                    nRF Connect Device Manager
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">3.2.0
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":mcumgr-core/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":mcumgr-core/release" data-filter=":mcumgr-core/release">
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    nRF Connect Device Manager
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" id="content" pageids="mcumgr-core::////PointingToDeclaration//290092119">
+  <div class="breadcrumbs"></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>mcumgr-core</span></span></h1>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><p class="paragraph">Core functionality of the Mcu Manager library. </p><p class="paragraph">This module defines the base transport interface, the protocol managers, and the response data structures  used to communicate with devices running nRF Connect SDK, Zephyr, or Apache Mynewt.</p><h2 class="">Key Components</h2><ul><li><p class="paragraph"><code class="strong lang-kotlin"><strong>McuMgrTransport</strong></code>: The interface for sending and receiving SMP packets.</p></li><li><p class="paragraph"><strong>Managers</strong>: Specialized classes for different Mcu Manager groups:</p></li><ul><li><p class="paragraph"><code class="lang-kotlin">DefaultManager</code>: OS-level commands like echo, reset, and task statistics.</p></li><li><p class="paragraph"><code class="lang-kotlin">ImageManager</code>: Firmware image management (list, upload, test, confirm).</p></li><li><p class="paragraph"><code class="lang-kotlin">FsManager</code>: File system operations (download, upload).</p></li><li><p class="paragraph"><code class="lang-kotlin">StatsManager</code>: Statistics retrieval.</p></li><li><p class="paragraph"><code class="lang-kotlin">LogManager</code>: Log retrieval.</p></li></ul><li><p class="paragraph"><code class="strong lang-kotlin"><strong>McuMgrResponse</strong></code>: Base class for all Mcu Manager responses, handling CBOR/JSON decoding.</p></li></ul><h2 class="">Example</h2><p class="paragraph">To use a manager, you need an implementation of <code class="lang-kotlin">McuMgrTransport</code> (e.g., <code class="lang-kotlin">McuMgrBleTransport</code> from the <code class="lang-kotlin">:mcumgr-ble</code> module).</p><div class="sample-container"><pre><code class="block lang-java" theme="idea">// Initialize a manager (e.g., DefaultManager)<br>DefaultManager manager = new DefaultManager(transport);<br><br>// Send an echo command asynchronously<br>manager.echo("Hello World!", new McuMgrCallback&lt;McuMgrEchoResponse&gt;() {<br>    @Override<br>    public void onResponse(@NonNull McuMgrEchoResponse response) {<br>        // Handle success<br>        String echo = response.r;<br>    }<br><br>    @Override<br>    public void onError(@NonNull McuMgrException error) {<br>        // Handle error<br>    }<br>});</code></pre><span class="copy-tooltip"><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div><span class="copy-icon"></span></span></div></div></div>
+  </div>
+  <h2 class="">Packages</h2>
+  <div class="table"><a data-name="850366272%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr" id="850366272%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr/index.html">no.nordicsemi.android.mcumgr</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="850366272%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div><span class="brief-comment"><a data-name="850366272%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr" id="850366272%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+            <p class="paragraph">Contains core classes and interfaces, such as <code class="lang-kotlin">McuManager</code>, <code class="lang-kotlin">McuMgrTransport</code>, and <code class="lang-kotlin">McuMgrCallback</code>.</p>
+          </span></div>
+      </div>
+    </div>
+<a data-name="2002312121%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.crash" id="2002312121%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.crash/index.html">no.nordicsemi.android.mcumgr.crash</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2002312121%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="184738117%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.dfu" id="184738117%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.dfu/index.html">no.nordicsemi.android.mcumgr.dfu</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="184738117%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div><span class="brief-comment"><a data-name="184738117%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.dfu" id="184738117%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+            <p class="paragraph">Contains classes for firmware upgrade, including <code class="lang-kotlin">FirmwareUpgradeManager</code> for McuBoot and SUIT.</p>
+          </span></div>
+      </div>
+    </div>
+<a data-name="-1486233176%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.dfu.mcuboot" id="-1486233176%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.dfu.mcuboot/index.html">no.nordicsemi.android.mcumgr.dfu.mcuboot</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1486233176%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="971839779%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.dfu.mcuboot.model" id="971839779%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.dfu.mcuboot.model/index.html">no.nordicsemi.android.mcumgr.dfu.mcuboot.model</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="971839779%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1430028081%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.dfu.mcuboot.task" id="-1430028081%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.dfu.mcuboot.task/index.html">no.nordicsemi.android.mcumgr.dfu.mcuboot.task</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1430028081%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-887408934%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.dfu.suit" id="-887408934%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.dfu.suit/index.html">no.nordicsemi.android.mcumgr.dfu.suit</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-887408934%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-612220715%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.dfu.suit.model" id="-612220715%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.dfu.suit.model/index.html">no.nordicsemi.android.mcumgr.dfu.suit.model</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-612220715%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1896768803%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.dfu.suit.task" id="-1896768803%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.dfu.suit.task/index.html">no.nordicsemi.android.mcumgr.dfu.suit.task</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1896768803%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1501154913%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.exception" id="1501154913%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.exception/index.html">no.nordicsemi.android.mcumgr.exception</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1501154913%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div><span class="brief-comment"><a data-name="1501154913%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.exception" id="1501154913%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+            <p class="paragraph">Defines library-specific exceptions, like <code class="lang-kotlin">McuMgrException</code> and <code class="lang-kotlin">McuMgrTimeoutException</code>.</p>
+          </span></div>
+      </div>
+    </div>
+<a data-name="-72439699%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.image" id="-72439699%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.image/index.html">no.nordicsemi.android.mcumgr.image</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-72439699%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="310190333%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.image.tlv" id="310190333%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.image.tlv/index.html">no.nordicsemi.android.mcumgr.image.tlv</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="310190333%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1912441896%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.managers" id="-1912441896%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.managers/index.html">no.nordicsemi.android.mcumgr.managers</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1912441896%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div><span class="brief-comment"><a data-name="-1912441896%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.managers" id="-1912441896%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+            <p class="paragraph">Contains all group managers used to interact with the device.</p>
+          </span></div>
+      </div>
+    </div>
+<a data-name="-322171617%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.managers.meta" id="-322171617%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.managers.meta/index.html">no.nordicsemi.android.mcumgr.managers.meta</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-322171617%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-517229069%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response" id="-517229069%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.response/index.html">no.nordicsemi.android.mcumgr.response</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-517229069%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div><span class="brief-comment"><a data-name="-517229069%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response" id="-517229069%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+            <p class="paragraph">Contains the base response class and sub-packages for group-specific response DTO.</p>
+          </span></div>
+      </div>
+    </div>
+<a data-name="-689388759%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response.dflt" id="-689388759%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.response.dflt/index.html">no.nordicsemi.android.mcumgr.response.dflt</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-689388759%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1160078356%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response.fs" id="-1160078356%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.response.fs/index.html">no.nordicsemi.android.mcumgr.response.fs</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1160078356%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="2125346312%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response.img" id="2125346312%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.response.img/index.html">no.nordicsemi.android.mcumgr.response.img</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2125346312%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-599788983%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response.log" id="-599788983%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.response.log/index.html">no.nordicsemi.android.mcumgr.response.log</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-599788983%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1641945602%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response.settings" id="1641945602%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.response.settings/index.html">no.nordicsemi.android.mcumgr.response.settings</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1641945602%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1086955147%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response.shell" id="-1086955147%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.response.shell/index.html">no.nordicsemi.android.mcumgr.response.shell</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1086955147%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-899022989%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response.stat" id="-899022989%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.response.stat/index.html">no.nordicsemi.android.mcumgr.response.stat</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-899022989%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="2051153644%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response.suit" id="2051153644%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.response.suit/index.html">no.nordicsemi.android.mcumgr.response.suit</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2051153644%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="144887451%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.response.zephyr.basic" id="144887451%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.response.zephyr.basic/index.html">no.nordicsemi.android.mcumgr.response.zephyr.basic</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="144887451%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1671261641%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.task" id="-1671261641%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.task/index.html">no.nordicsemi.android.mcumgr.task</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1671261641%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="2014099741%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.transfer" id="2014099741%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.transfer/index.html">no.nordicsemi.android.mcumgr.transfer</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2014099741%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="2133064308%2FPackages%2F290092119" anchor-label="no.nordicsemi.android.mcumgr.util" id="2133064308%2FPackages%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.mcumgr.util/index.html">no.nordicsemi.android.mcumgr.util</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2133064308%2FPackages%2F290092119"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Copyright © 2022 - 2026 Nordic Semiconductor ASA. All Rights Reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
