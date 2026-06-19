@@ -41,6 +41,8 @@ internal fun ConnectionState.map(
 				)
 			is Timeout ->
 				State.Disconnected(Reason.TIMEOUT)
+			Disconnected.Reason.RequiredServiceNotFound ->
+				State.Disconnected(Reason.NOT_SUPPORTED)
 			TerminateLocalHost -> if (bondingFailed)
 				State.Disconnected(Reason.BONDING_FAILED)
 				else State.Disconnected(Reason.CONNECTION_LOST)
