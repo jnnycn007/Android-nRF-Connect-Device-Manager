@@ -22,7 +22,7 @@ new version to get future updates. See [migration guide](#migration-from-the-ori
 ## Importing
 
 > [!Important]
-> In version 3.0 the package name has been changed from `io.runtime.mcumgr` to `no.nordicsemi.android.mcumgr`.
+> In version 3.0 the package name will change from `io.runtime.mcumgr` to `no.nordicsemi.android.mcumgr`.
 > Use Find and Replace tool in Android Studio to replace all occurrences in your project.
 
 For versions 2.x use *version2* branch or tags.
@@ -65,11 +65,16 @@ McuManager is an application layer protocol used to manage and monitor microcont
 Apache Mynewt and Zephyr. More specifically, McuManager implements over-the-air (OTA) firmware upgrades,
 log and stat collection, and file-system and configuration management.
 
+## Documentation
+
+Dokka documentation can be found [here](https://nordicsemi.github.io/Android-nRF-Connect-Device-Manager/html/index.html).
+
 ## Command Groups
 
-McuManager are organized by functionality into command groups. In this Android library, command groups
-are called managers and extend the `McuManager` class. The managers (groups) implemented in
-the library are:
+Commands in Mcu Manager are organized by functionality into command groups.
+
+In this Android library, command groups are called managers and extend the `McuManager` class.
+The managers (groups) implemented in the library are:
 
 * **`DefaultManager`**: Contains commands relevant to the OS. This includes task and memory pool
   statistics, device time read & write, and device reset.
@@ -84,7 +89,7 @@ the library are:
 
 # Firmware Upgrade
 
-Firmware upgrade is generally a four step process performed using commands from the `image` and
+Firmware upgrade is generally a four-step process performed using commands from the `image` and
 `default` commands groups: `upload`, `test`, `reset`, and `confirm`.
 
 This library provides a `FirmwareUpgradeManager` as a convenience for upgrading the image running on a device.
@@ -114,14 +119,14 @@ FirmwareUpgradeManager.Settings advancedSettings = FirmwareUpgradeManager.Settin
     // useful when switching to a different, incompatible application, or when upgrading by a major
     // version, when app storage is structured differently. Set to false by default.
     .setEraseAppSettings(false)
-    .build()
+    .build();
 
 // Set a mode: Confirm only, Test only, Test & Confirm or None.
-// For multi-core update only the first one is supported. See details below.
+// For multicore update only the first one is supported. See details below.
 dfuManager.setMode(mode);
 
 // Start the firmware upgrade with the image data.
-dfuManager.start(image, advancedSettings)
+dfuManager.start(image, advancedSettings);
 ```
 
 To update multi-core device, use:
@@ -152,8 +157,8 @@ configured to perform these different methods using `setMode(FirmwareUpgradeMana
 The different firmware upgrade modes are as follows:
 
 * **`TEST_AND_CONFIRM`**: This mode is the **recommended mode** for performing upgrades
-  due to it's ability to recover from a bad firmware upgrade. Note, that the device must support
-  this feature. Currently, multi-core devices (based on nRF5340) do not support this mode.
+  due to its ability to recover from a bad firmware upgrade. Note, that the device must support
+  this feature. Currently, multicore devices (based on nRF5340) do not support this mode.
   The process for this mode is `UPLOAD`, `TEST`, `RESET`, `CONFIRM`.
 * **`CONFIRM_ONLY`**: This mode may be used for devices with revert disabled. If the device fails
   to boot into the new image, it will not be able to recover and will need to be re-flashed.
@@ -161,11 +166,11 @@ The different firmware upgrade modes are as follows:
   as some devices don't support reverting firmware (test mode).
 * **`TEST_ONLY`**: This mode is useful if you want to run tests on the new image running before
   confirming it manually as the primary boot image.
-  This mode is recommended for devices that do not support reverting images, i.e. multi core devices.
+  This mode is recommended for devices that do not support reverting images, i.e. multicore devices.
   The process for this mode is `UPLOAD`, `TEST`, `RESET`.
 * **`NONE`**: This mode should be used if the bootloader does not support reverting images.
   The process for this mode is `UPLOAD`, `RESET`. If the device supports bootloader information
-  command, and the bootloader is in DirectXIP without revert mode, this mode will be selected
+  command, and the bootloader is in *DirectXIP* without revert mode, this mode will be selected
   automatically. This mode was added in library version 1.8.
 
 > [!Note]
