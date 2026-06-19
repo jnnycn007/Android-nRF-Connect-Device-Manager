@@ -67,3 +67,9 @@ dependencies {
     // Use SLF4J for logging.
     implementation(libs.slf4j)
 }
+
+dokka {
+    dokkaSourceSets.configureEach {
+        includes.from("Module.md")
+    }
+}

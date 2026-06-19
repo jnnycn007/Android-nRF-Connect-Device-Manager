@@ -1,0 +1,629 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CanonicalMapSerializer</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    nRF Connect Device Manager
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">3.2.0
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":mcumgr-core/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":mcumgr-core/release" data-filter=":mcumgr-core/release">
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    nRF Connect Device Manager
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="mcumgr-core::no.nordicsemi.android.mcumgr.util/CanonicalMapSerializer///PointingToDeclaration//290092119">
+  <div class="breadcrumbs"><a href="../../index.html">mcumgr-core</a><span class="delimiter">/</span><a href="../index.html">no.nordicsemi.android.mcumgr.util</a><span class="delimiter">/</span><span class="current">CanonicalMapSerializer</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Canonical</span><wbr><span>Map</span><wbr><span><span>Serializer</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">CanonicalMapSerializer</a> : <span data-unresolved-link="com.fasterxml.jackson.databind.ser.std/MapSerializer///PointingToDeclaration/">MapSerializer</span></div><p class="paragraph">This serializer does exactly the same as <span data-unresolved-link="com.fasterxml.jackson.databind.ser.std/MapSerializer///PointingToDeclaration/">MapSerializer</span>, but is using canonical form of encoding maps, instead of indefinite length. That is, a map is encoded using it's length instead of a STOP sign. </p><ul><li>A0 - map of size 0</li><li>A3 - map of size 3</li><li>An - where n is in { 0 - F }</li><li>B0 - map of size 16</li><li>B7 - max map size encoded in a single byte (23 pairs)</li><li>B8 18 - map of size 24 pairs</li></ul> Before, maps were using BF - map of indefinite length, ending with FF (stop sign).</div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="1459588035%2FConstructors%2F290092119" anchor-label="CanonicalMapSerializer" id="1459588035%2FConstructors%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-canonical-map-serializer.html"><span>Canonical</span><wbr><span>Map</span><wbr><span><span>Serializer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1459588035%2FConstructors%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">canonicalMapSerializer<span class="token operator">: </span><a href="index.html">CanonicalMapSerializer</a><span class="token punctuation">, </span></span><span class="parameter ">property<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/BeanProperty///PointingToDeclaration/">BeanProperty</span><span class="token punctuation">, </span></span><span class="parameter ">keySerializer<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">valueSerializer<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">ignored<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Set.html">Set</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">included<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Set.html">Set</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ser<span class="token operator">: </span><a href="index.html">CanonicalMapSerializer</a><span class="token punctuation">, </span></span><span class="parameter ">filterId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span></span><span class="parameter ">sortKeys<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-962799983%2FProperties%2F290092119" anchor-label="MARKER_FOR_EMPTY" id="-962799983%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-962799983%2FProperties%2F290092119"><span>MARKER_</span><wbr><span>FOR_</span><wbr><span>EMPTY</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-962799983%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#-962799983%2FProperties%2F290092119">MARKER_FOR_EMPTY</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-1174830958%2FFunctions%2F290092119" anchor-label="_withValueTypeSerializer" id="-1174830958%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1174830958%2FFunctions%2F290092119"><span>_</span><wbr><span>with</span><wbr><span>Value</span><wbr><span>Type</span><wbr><span><span>Serializer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1174830958%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1174830958%2FFunctions%2F290092119"><span class="token function">_withValueTypeSerializer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">vts<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.jsontype/TypeSerializer///PointingToDeclaration/">TypeSerializer</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.ser.std/MapSerializer///PointingToDeclaration/">MapSerializer</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1603216457%2FFunctions%2F290092119" anchor-label="acceptJsonFormatVisitor" id="1603216457%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1603216457%2FFunctions%2F290092119"><span>accept</span><wbr><span>Json</span><wbr><span>Format</span><wbr><span><span>Visitor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1603216457%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1603216457%2FFunctions%2F290092119"><span class="token function">acceptJsonFormatVisitor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">visitor<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.jsonFormatVisitors/JsonFormatVisitorWrapper///PointingToDeclaration/">JsonFormatVisitorWrapper</span><span class="token punctuation">, </span></span><span class="parameter ">typeHint<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JavaType///PointingToDeclaration/">JavaType</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-251511014%2FFunctions%2F290092119" anchor-label="construct" id="-251511014%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-251511014%2FFunctions%2F290092119"><span><span>construct</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-251511014%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-251511014%2FFunctions%2F290092119"><span class="token function">construct</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ignoredEntries<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Set.html">Set</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">includedEntries<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Set.html">Set</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">mapType<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JavaType///PointingToDeclaration/">JavaType</span><span class="token punctuation">, </span></span><span class="parameter ">staticValueType<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">vts<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.jsontype/TypeSerializer///PointingToDeclaration/">TypeSerializer</span><span class="token punctuation">, </span></span><span class="parameter ">keySerializer<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">valueSerializer<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">filterId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.ser.std/MapSerializer///PointingToDeclaration/">MapSerializer</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1490200311%2FFunctions%2F290092119" anchor-label="createContextual" id="-1490200311%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1490200311%2FFunctions%2F290092119"><span>create</span><wbr><span><span>Contextual</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1490200311%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1490200311%2FFunctions%2F290092119"><span class="token function">createContextual</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span><span class="token punctuation">, </span></span><span class="parameter ">property<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/BeanProperty///PointingToDeclaration/">BeanProperty</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1062166286%2FFunctions%2F290092119" anchor-label="getContentSerializer" id="1062166286%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1062166286%2FFunctions%2F290092119"><span>get</span><wbr><span>Content</span><wbr><span><span>Serializer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1062166286%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1062166286%2FFunctions%2F290092119"><span class="token function">getContentSerializer</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1518802778%2FFunctions%2F290092119" anchor-label="getContentType" id="-1518802778%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1518802778%2FFunctions%2F290092119"><span>get</span><wbr><span>Content</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1518802778%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1518802778%2FFunctions%2F290092119"><span class="token function">getContentType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JavaType///PointingToDeclaration/">JavaType</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-342604674%2FFunctions%2F290092119" anchor-label="getDelegatee" id="-342604674%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-342604674%2FFunctions%2F290092119"><span>get</span><wbr><span><span>Delegatee</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-342604674%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-342604674%2FFunctions%2F290092119"><span class="token function">getDelegatee</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2031831400%2FFunctions%2F290092119" anchor-label="getKeySerializer" id="2031831400%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2031831400%2FFunctions%2F290092119"><span>get</span><wbr><span>Key</span><wbr><span><span>Serializer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2031831400%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#2031831400%2FFunctions%2F290092119"><span class="token function">getKeySerializer</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-989600000%2FFunctions%2F290092119" anchor-label="getSchema" id="-989600000%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-989600000%2FFunctions%2F290092119"><span>get</span><wbr><span><span>Schema</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-989600000%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-989600000%2FFunctions%2F290092119"><span class="token function">getSchema</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span><span class="token punctuation">, </span></span><span class="parameter ">typeHint<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/reflect/Type.html">Type</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonNode///PointingToDeclaration/">JsonNode</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2032127386%2FFunctions%2F290092119" anchor-label="handledType" id="2032127386%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2032127386%2FFunctions%2F290092119"><span>handled</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2032127386%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#2032127386%2FFunctions%2F290092119"><span class="token function">handledType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span data-unresolved-link="com.fasterxml.jackson.databind.ser.std/StdSerializer///PointingToGenericParameters(0)/">T</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1223073091%2FFunctions%2F290092119" anchor-label="hasSingleElement" id="-1223073091%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1223073091%2FFunctions%2F290092119"><span>has</span><wbr><span>Single</span><wbr><span><span>Element</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1223073091%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1223073091%2FFunctions%2F290092119"><span class="token function">hasSingleElement</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1419853383%2FFunctions%2F290092119" anchor-label="isEmpty" id="1419853383%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1419853383%2FFunctions%2F290092119"><span>is</span><wbr><span><span>Empty</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1419853383%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1419853383%2FFunctions%2F290092119"><span class="token function">isEmpty</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">prov<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span><span class="token punctuation">, </span></span><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2117148841%2FFunctions%2F290092119" anchor-label="isUnwrappingSerializer" id="-2117148841%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-2117148841%2FFunctions%2F290092119"><span>is</span><wbr><span>Unwrapping</span><wbr><span><span>Serializer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2117148841%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-2117148841%2FFunctions%2F290092119"><span class="token function">isUnwrappingSerializer</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-930927883%2FFunctions%2F290092119" anchor-label="properties" id="-930927883%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-930927883%2FFunctions%2F290092119"><span><span>properties</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-930927883%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-930927883%2FFunctions%2F290092119"><span class="token function">properties</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Iterator.html">Iterator</a><span class="token operator">&lt;</span><span data-unresolved-link="com.fasterxml.jackson.databind.ser/PropertyWriter///PointingToDeclaration/">PropertyWriter</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1855410810%2FFunctions%2F290092119" anchor-label="replaceDelegatee" id="1855410810%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1855410810%2FFunctions%2F290092119"><span>replace</span><wbr><span><span>Delegatee</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1855410810%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1855410810%2FFunctions%2F290092119"><span class="token function">replaceDelegatee</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">delegatee<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToGenericParameters(0)/">T</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1288066643%2FFunctions%2F290092119" anchor-label="serialize" id="1288066643%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="serialize.html"><span><span>serialize</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1288066643%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="serialize.html"><span class="token function">serialize</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">gen<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span><span class="token punctuation">, </span></span><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1696678954%2FFunctions%2F290092119" anchor-label="serializeFields" id="1696678954%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1696678954%2FFunctions%2F290092119"><span>serialize</span><wbr><span><span>Fields</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1696678954%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1696678954%2FFunctions%2F290092119"><span class="token function">serializeFields</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">gen<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span><span class="token punctuation">, </span></span><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-190266453%2FFunctions%2F290092119" anchor-label="serializeFieldsUsing" id="-190266453%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-190266453%2FFunctions%2F290092119"><span>serialize</span><wbr><span>Fields</span><wbr><span><span>Using</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-190266453%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-190266453%2FFunctions%2F290092119"><span class="token function">serializeFieldsUsing</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">gen<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span><span class="token punctuation">, </span></span><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span><span class="token punctuation">, </span></span><span class="parameter ">ser<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-48863098%2FFunctions%2F290092119" anchor-label="serializeFilteredAnyProperties" id="-48863098%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-48863098%2FFunctions%2F290092119"><span>serialize</span><wbr><span>Filtered</span><wbr><span>Any</span><wbr><span><span>Properties</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-48863098%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-48863098%2FFunctions%2F290092119"><span class="token function">serializeFilteredAnyProperties</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span><span class="token punctuation">, </span></span><span class="parameter ">gen<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span><span class="token punctuation">, </span></span><span class="parameter ">bean<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span></span><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">filter<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.ser/PropertyFilter///PointingToDeclaration/">PropertyFilter</span><span class="token punctuation">, </span></span><span class="parameter ">suppressableValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="128520770%2FFunctions%2F290092119" anchor-label="serializeFilteredFields" id="128520770%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#128520770%2FFunctions%2F290092119"><span>serialize</span><wbr><span>Filtered</span><wbr><span><span>Fields</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="128520770%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#128520770%2FFunctions%2F290092119"><span class="token function">serializeFilteredFields</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">gen<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span><span class="token punctuation">, </span></span><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span><span class="token punctuation">, </span></span><span class="parameter ">filter<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.ser/PropertyFilter///PointingToDeclaration/">PropertyFilter</span><span class="token punctuation">, </span></span><span class="parameter ">suppressableValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-585791710%2FFunctions%2F290092119" anchor-label="serializeOptionalFields" id="-585791710%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-585791710%2FFunctions%2F290092119"><span>serialize</span><wbr><span>Optional</span><wbr><span><span>Fields</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-585791710%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-585791710%2FFunctions%2F290092119"><span class="token function">serializeOptionalFields</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">gen<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span><span class="token punctuation">, </span></span><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span><span class="token punctuation">, </span></span><span class="parameter ">suppressableValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="154716388%2FFunctions%2F290092119" anchor-label="serializeTypedFields" id="154716388%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#154716388%2FFunctions%2F290092119"><span>serialize</span><wbr><span>Typed</span><wbr><span><span>Fields</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="154716388%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#154716388%2FFunctions%2F290092119"><span class="token function">serializeTypedFields</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">gen<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span><span class="token punctuation">, </span></span><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span><span class="token punctuation">, </span></span><span class="parameter ">suppressableValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1438216469%2FFunctions%2F290092119" anchor-label="serializeWithoutTypeInfo" id="1438216469%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1438216469%2FFunctions%2F290092119"><span>serialize</span><wbr><span>Without</span><wbr><span>Type</span><wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1438216469%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1438216469%2FFunctions%2F290092119"><span class="token function">serializeWithoutTypeInfo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">gen<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span><span class="token punctuation">, </span></span><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1904963627%2FFunctions%2F290092119" anchor-label="serializeWithType" id="-1904963627%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1904963627%2FFunctions%2F290092119"><span>serialize</span><wbr><span>With</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1904963627%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1904963627%2FFunctions%2F290092119"><span class="token function">serializeWithType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">gen<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.core/JsonGenerator///PointingToDeclaration/">JsonGenerator</span><span class="token punctuation">, </span></span><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span><span class="token punctuation">, </span></span><span class="parameter ">typeSer<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.jsontype/TypeSerializer///PointingToDeclaration/">TypeSerializer</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="40759296%2FFunctions%2F290092119" anchor-label="unwrappingSerializer" id="40759296%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#40759296%2FFunctions%2F290092119"><span>unwrapping</span><wbr><span><span>Serializer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="40759296%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#40759296%2FFunctions%2F290092119"><span class="token function">unwrappingSerializer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">unwrapper<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.util/NameTransformer///PointingToDeclaration/">NameTransformer</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToGenericParameters(0)/">T</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-586728414%2FFunctions%2F290092119" anchor-label="usesObjectId" id="-586728414%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-586728414%2FFunctions%2F290092119"><span>uses</span><wbr><span>Object</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-586728414%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-586728414%2FFunctions%2F290092119"><span class="token function">usesObjectId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2107603714%2FFunctions%2F290092119" anchor-label="withContentInclusion" id="2107603714%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2107603714%2FFunctions%2F290092119"><span>with</span><wbr><span>Content</span><wbr><span><span>Inclusion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2107603714%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#2107603714%2FFunctions%2F290092119"><span class="token function">withContentInclusion</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">suppressableValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span></span><span class="parameter ">suppressNulls<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.ser.std/MapSerializer///PointingToDeclaration/">MapSerializer</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1501310255%2FFunctions%2F290092119" anchor-label="withFilterId" id="-1501310255%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#790146972%2FFunctions%2F290092119"><span>with</span><wbr><span>Filter</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1501310255%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#790146972%2FFunctions%2F290092119"><span class="token function">withFilterId</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">filterId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-2093457097%2FFunctions%2F290092119"><span class="token function">withFilterId</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">filterId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.ser.std/MapSerializer///PointingToDeclaration/">MapSerializer</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="511227354%2FFunctions%2F290092119" anchor-label="withResolved" id="511227354%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="with-resolved.html"><span>with</span><wbr><span><span>Resolved</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="511227354%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="with-resolved.html"><span class="token function">withResolved</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">property<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/BeanProperty///PointingToDeclaration/">BeanProperty</span><span class="token punctuation">, </span></span><span class="parameter ">keySerializer<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">valueSerializer<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/JsonSerializer///PointingToDeclaration/">JsonSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">ignored<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Set.html">Set</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">included<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Set.html">Set</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">sortKeys<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CanonicalMapSerializer</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1306101129%2FFunctions%2F290092119" anchor-label="withValueTypeSerializer" id="-1306101129%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1306101129%2FFunctions%2F290092119"><span>with</span><wbr><span>Value</span><wbr><span>Type</span><wbr><span><span>Serializer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1306101129%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1306101129%2FFunctions%2F290092119"><span class="token function">withValueTypeSerializer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">vts<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.jsontype/TypeSerializer///PointingToDeclaration/">TypeSerializer</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind.ser/ContainerSerializer///PointingToDeclaration/">ContainerSerializer</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="735877524%2FFunctions%2F290092119" anchor-label="wrapAndThrow" id="735877524%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#735877524%2FFunctions%2F290092119"><span>wrap</span><wbr><span>And</span><wbr><span><span>Throw</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="735877524%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#735877524%2FFunctions%2F290092119"><span class="token function">wrapAndThrow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">provider<span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.databind/SerializerProvider///PointingToDeclaration/">SerializerProvider</span><span class="token punctuation">, </span></span><span class="parameter ">t<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Throwable.html">Throwable</a><span class="token punctuation">, </span></span><span class="parameter ">bean<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span></span><span class="parameter ">fieldName<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Copyright © 2022 - 2026 Nordic Semiconductor ASA. All Rights Reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

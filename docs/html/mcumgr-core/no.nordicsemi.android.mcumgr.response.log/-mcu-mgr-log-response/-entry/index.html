@@ -1,0 +1,389 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Entry</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../../index.html" tabindex="1">
+                    nRF Connect Device Manager
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">3.2.0
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":mcumgr-core/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":mcumgr-core/release" data-filter=":mcumgr-core/release">
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    nRF Connect Device Manager
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="mcumgr-core::no.nordicsemi.android.mcumgr.response.log/McuMgrLogResponse.Entry///PointingToDeclaration//290092119">
+  <div class="breadcrumbs"><a href="../../../index.html">mcumgr-core</a><span class="delimiter">/</span><a href="../../index.html">no.nordicsemi.android.mcumgr.response.log</a><span class="delimiter">/</span><a href="../index.html">McuMgrLogResponse</a><span class="delimiter">/</span><span class="current">Entry</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Entry</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">Entry</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="-344232238%2FConstructors%2F290092119" anchor-label="Entry" id="-344232238%2FConstructors%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-entry.html"><span><span>Entry</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-344232238%2FConstructors%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="1775052531%2FProperties%2F290092119" anchor-label="imghash" id="1775052531%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="imghash.html"><span><span>imghash</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1775052531%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="imghash.html">imghash</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span></div><div class="brief ">The first 4 bytes of the build ID (image hash) which was running when this log entry was written by the device.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="196865618%2FProperties%2F290092119" anchor-label="index" id="196865618%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="--index--.html"><span><span>index</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="196865618%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="--index--.html">index</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief ">Log entry index.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1920305120%2FProperties%2F290092119" anchor-label="level" id="1920305120%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="level.html"><span><span>level</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1920305120%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="level.html">level</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Log entry level.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-545465658%2FProperties%2F290092119" anchor-label="LOG_ENTRY_TYPE_BINARY" id="-545465658%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-e-n-t-r-y_-t-y-p-e_-b-i-n-a-r-y.html"><span>LOG_</span><wbr><span>ENTRY_</span><wbr><span>TYPE_</span><wbr><span>BINARY</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-545465658%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-l-o-g_-e-n-t-r-y_-t-y-p-e_-b-i-n-a-r-y.html">LOG_ENTRY_TYPE_BINARY</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"bin"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-862586395%2FProperties%2F290092119" anchor-label="LOG_ENTRY_TYPE_CBOR" id="-862586395%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-e-n-t-r-y_-t-y-p-e_-c-b-o-r.html"><span>LOG_</span><wbr><span>ENTRY_</span><wbr><span>TYPE_</span><wbr><span>CBOR</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-862586395%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-l-o-g_-e-n-t-r-y_-t-y-p-e_-c-b-o-r.html">LOG_ENTRY_TYPE_CBOR</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"cbor"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1872312502%2FProperties%2F290092119" anchor-label="LOG_ENTRY_TYPE_STRING" id="1872312502%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-e-n-t-r-y_-t-y-p-e_-s-t-r-i-n-g.html"><span>LOG_</span><wbr><span>ENTRY_</span><wbr><span>TYPE_</span><wbr><span>STRING</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1872312502%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-l-o-g_-e-n-t-r-y_-t-y-p-e_-s-t-r-i-n-g.html">LOG_ENTRY_TYPE_STRING</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"str"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="578894081%2FProperties%2F290092119" anchor-label="LOG_LEVEL_CRITICAL" id="578894081%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-l-e-v-e-l_-c-r-i-t-i-c-a-l.html"><span>LOG_</span><wbr><span>LEVEL_</span><wbr><span>CRITICAL</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="578894081%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-l-o-g_-l-e-v-e-l_-c-r-i-t-i-c-a-l.html">LOG_LEVEL_CRITICAL</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">4</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1699090375%2FProperties%2F290092119" anchor-label="LOG_LEVEL_DEBUG" id="1699090375%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-l-e-v-e-l_-d-e-b-u-g.html"><span>LOG_</span><wbr><span>LEVEL_</span><wbr><span>DEBUG</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1699090375%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-l-o-g_-l-e-v-e-l_-d-e-b-u-g.html">LOG_LEVEL_DEBUG</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1216477618%2FProperties%2F290092119" anchor-label="LOG_LEVEL_ERROR" id="1216477618%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-l-e-v-e-l_-e-r-r-o-r.html"><span>LOG_</span><wbr><span>LEVEL_</span><wbr><span>ERROR</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1216477618%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-l-o-g_-l-e-v-e-l_-e-r-r-o-r.html">LOG_LEVEL_ERROR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">3</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="586562642%2FProperties%2F290092119" anchor-label="LOG_LEVEL_INFO" id="586562642%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-l-e-v-e-l_-i-n-f-o.html"><span>LOG_</span><wbr><span>LEVEL_</span><wbr><span>INFO</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="586562642%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-l-o-g_-l-e-v-e-l_-i-n-f-o.html">LOG_LEVEL_INFO</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-659893894%2FProperties%2F290092119" anchor-label="LOG_LEVEL_WARN" id="-659893894%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-l-e-v-e-l_-w-a-r-n.html"><span>LOG_</span><wbr><span>LEVEL_</span><wbr><span>WARN</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-659893894%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-l-o-g_-l-e-v-e-l_-w-a-r-n.html">LOG_LEVEL_WARN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">2</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1624109194%2FProperties%2F290092119" anchor-label="module" id="1624109194%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="module.html"><span><span>module</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1624109194%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="module.html">module</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Module which logged the entry.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2007212099%2FProperties%2F290092119" anchor-label="msg" id="2007212099%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="msg.html"><span><span>msg</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2007212099%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="msg.html">msg</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span></div><div class="brief ">Log entry message.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1908373591%2FProperties%2F290092119" anchor-label="ts" id="1908373591%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ts.html"><span><span>ts</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1908373591%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="ts.html">ts</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief ">Log entry time stamp.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1976040004%2FProperties%2F290092119" anchor-label="type" id="-1976040004%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="type.html"><span><span>type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1976040004%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="type.html">type</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></div><div class="brief ">Log message type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-1725671116%2FFunctions%2F290092119" anchor-label="getMessageString" id="-1725671116%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-message-string.html"><span>get</span><wbr><span>Message</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1725671116%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span></div></div><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-message-string.html"><span class="token function">getMessageString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span>&nbsp;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></div><div class="brief ">Get a string representation of the <a href="msg.html">msg</a> based on the message <a href="type.html">type</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Copyright © 2022 - 2026 Nordic Semiconductor ASA. All Rights Reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

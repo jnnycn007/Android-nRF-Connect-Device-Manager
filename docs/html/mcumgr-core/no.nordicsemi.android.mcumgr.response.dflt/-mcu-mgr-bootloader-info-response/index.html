@@ -1,0 +1,599 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>McuMgrBootloaderInfoResponse</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    nRF Connect Device Manager
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">3.2.0
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":mcumgr-core/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":mcumgr-core/release" data-filter=":mcumgr-core/release">
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    nRF Connect Device Manager
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="mcumgr-core::no.nordicsemi.android.mcumgr.response.dflt/McuMgrBootloaderInfoResponse///PointingToDeclaration//290092119">
+  <div class="breadcrumbs"><a href="../../index.html">mcumgr-core</a><span class="delimiter">/</span><a href="../index.html">no.nordicsemi.android.mcumgr.response.dflt</a><span class="delimiter">/</span><span class="current">McuMgrBootloaderInfoResponse</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Mcu</span><wbr><span>Mgr</span><wbr><span>Bootloader</span><wbr><span>Info</span><wbr><span><span>Response</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">McuMgrBootloaderInfoResponse</a> : <a href="../-mcu-mgr-os-response/index.html">McuMgrOsResponse</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="242361814%2FConstructors%2F290092119" anchor-label="McuMgrBootloaderInfoResponse" id="242361814%2FConstructors%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mcu-mgr-bootloader-info-response.html"><span>Mcu</span><wbr><span>Mgr</span><wbr><span>Bootloader</span><wbr><span>Info</span><wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="242361814%2FConstructors%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-39664559%2FProperties%2F290092119" anchor-label="activeB0Slot" id="-39664559%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="active-b0-slot.html"><span>active</span><wbr><span><span>B0Slot</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-39664559%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="active-b0-slot.html">activeB0Slot</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">The id of the active B0 slot.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="813295998%2FProperties%2F290092119" anchor-label="bootloader" id="813295998%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="bootloader.html"><span><span>bootloader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="813295998%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="bootloader.html">bootloader</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2113937576%2FProperties%2F290092119" anchor-label="groupReturnCode" id="-2113937576%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/group-return-code.html"><span>group</span><wbr><span>Return</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2113937576%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/group-return-code.html">groupReturnCode</a><span class="token operator">: </span><a href="../../no.nordicsemi.android.mcumgr.response/-has-return-code/-group-return-code/index.html">HasReturnCode.GroupReturnCode</a></div><div class="brief ">Since version 2 of the SMP protocol, a more detailed return code is returned in the response.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="902107040%2FProperties%2F290092119" anchor-label="mode" id="902107040%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mode.html"><span><span>mode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="902107040%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="mode.html">mode</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Text response including requested parameters.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-661391054%2FProperties%2F290092119" anchor-label="MODE_DIRECT_XIP" id="-661391054%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e_-d-i-r-e-c-t_-x-i-p.html"><span>MODE_</span><wbr><span>DIRECT_</span><wbr><span>XIP</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-661391054%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-o-d-e_-d-i-r-e-c-t_-x-i-p.html">MODE_DIRECT_XIP</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">4</span></div><div class="brief ">MCUboot is in DirectXIP without revert mode.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-524255820%2FProperties%2F290092119" anchor-label="MODE_DIRECT_XIP_WITH_REVERT" id="-524255820%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e_-d-i-r-e-c-t_-x-i-p_-w-i-t-h_-r-e-v-e-r-t.html"><span>MODE_</span><wbr><span>DIRECT_</span><wbr><span>XIP_</span><wbr><span>WITH_</span><wbr><span>REVERT</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-524255820%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-o-d-e_-d-i-r-e-c-t_-x-i-p_-w-i-t-h_-r-e-v-e-r-t.html">MODE_DIRECT_XIP_WITH_REVERT</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">5</span></div><div class="brief ">MCUboot is in DirectXIP with revert mode.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-168517688%2FProperties%2F290092119" anchor-label="MODE_FIRMWARE_LOADER" id="-168517688%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e_-f-i-r-m-w-a-r-e_-l-o-a-d-e-r.html"><span>MODE_</span><wbr><span>FIRMWARE_</span><wbr><span>LOADER</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-168517688%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-o-d-e_-f-i-r-m-w-a-r-e_-l-o-a-d-e-r.html">MODE_FIRMWARE_LOADER</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">7</span></div><div class="brief ">MCUboot is in Firmware Loader mode.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1721025595%2FProperties%2F290092119" anchor-label="MODE_OVERWRITE_ONLY" id="1721025595%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e_-o-v-e-r-w-r-i-t-e_-o-n-l-y.html"><span>MODE_</span><wbr><span>OVERWRITE_</span><wbr><span>ONLY</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1721025595%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-o-d-e_-o-v-e-r-w-r-i-t-e_-o-n-l-y.html">MODE_OVERWRITE_ONLY</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">2</span></div><div class="brief ">MCUboot is in overwrite (upgrade-only) mode.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="514645575%2FProperties%2F290092119" anchor-label="MODE_RAM_LOADER" id="514645575%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e_-r-a-m_-l-o-a-d-e-r.html"><span>MODE_</span><wbr><span>RAM_</span><wbr><span>LOADER</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="514645575%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-o-d-e_-r-a-m_-l-o-a-d-e-r.html">MODE_RAM_LOADER</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">6</span></div><div class="brief ">MCUboot is in RAM loader mode.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1731621647%2FProperties%2F290092119" anchor-label="MODE_SINGLE_APP" id="-1731621647%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e_-s-i-n-g-l-e_-a-p-p.html"><span>MODE_</span><wbr><span>SINGLE_</span><wbr><span>APP</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1731621647%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-o-d-e_-s-i-n-g-l-e_-a-p-p.html">MODE_SINGLE_APP</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></div><div class="brief ">MCUboot is in single application mode.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1427749709%2FProperties%2F290092119" anchor-label="MODE_SWAP_SCRATCH" id="1427749709%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e_-s-w-a-p_-s-c-r-a-t-c-h.html"><span>MODE_</span><wbr><span>SWAP_</span><wbr><span>SCRATCH</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1427749709%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-o-d-e_-s-w-a-p_-s-c-r-a-t-c-h.html">MODE_SWAP_SCRATCH</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span></div><div class="brief ">MCUboot is in swap using scratch partition mode.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1139695108%2FProperties%2F290092119" anchor-label="MODE_SWAP_WITHOUT_SCRATCH" id="1139695108%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e_-s-w-a-p_-w-i-t-h-o-u-t_-s-c-r-a-t-c-h.html"><span>MODE_</span><wbr><span>SWAP_</span><wbr><span>WITHOUT_</span><wbr><span>SCRATCH</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1139695108%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-o-d-e_-s-w-a-p_-w-i-t-h-o-u-t_-s-c-r-a-t-c-h.html">MODE_SWAP_WITHOUT_SCRATCH</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">3</span></div><div class="brief ">MCUboot is in swap without scratch mode.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-31804395%2FProperties%2F290092119" anchor-label="MODE_UNKNOWN" id="-31804395%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e_-u-n-k-n-o-w-n.html"><span>MODE_</span><wbr><span>UNKNOWN</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-31804395%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-o-d-e_-u-n-k-n-o-w-n.html">MODE_UNKNOWN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">-1</span></div><div class="brief ">Unknown mode of MCUboot.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="25648035%2FProperties%2F290092119" anchor-label="noDowngrade" id="25648035%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="no-downgrade.html"><span>no</span><wbr><span><span>Downgrade</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="25648035%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="no-downgrade.html">noDowngrade</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">The "no-downgrade" is a flag, indicating that mode has downgrade prevention enabled; downgrade prevention means that if uploaded image has lower version than running, it will not be taken for execution by MCUboot.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1249494549%2FProperties%2F290092119" anchor-label="rc" id="1249494549%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/rc.html"><span><span>rc</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1249494549%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/rc.html">rc</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">The raw return code found in most McuMgr response payloads.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1707921328%2FProperties%2F290092119" anchor-label="UNKNOWN_SLOT" id="-1707921328%2FProperties%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-n-k-n-o-w-n_-s-l-o-t.html"><span>UNKNOWN_</span><wbr><span>SLOT</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1707921328%2FProperties%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-u-n-k-n-o-w-n_-s-l-o-t.html">UNKNOWN_SLOT</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">-1</span></div><div class="brief ">The active slot number is unknown.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-1273497238%2FFunctions%2F290092119" anchor-label="buildCoapResponse" id="-1273497238%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/build-coap-response.html"><span>build</span><wbr><span>Coap</span><wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1273497238%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/build-coap-response.html">T</a><span class="token operator"> : </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/index.html">McuMgrResponse</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/build-coap-response.html"><span class="token function">buildCoapResponse</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>scheme<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="../../no.nordicsemi.android.mcumgr/-mcu-mgr-scheme/index.html">McuMgrScheme</a><span class="token punctuation">, </span></span><span class="parameter ">bytes<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">header<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">payload<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">codeClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">codeDetail<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">type<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/build-coap-response.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/build-coap-response.html">T</a></div><div class="brief ">Build a CoAP McuMgrResponse.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1358041079%2FFunctions%2F290092119" anchor-label="buildResponse" id="1358041079%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/build-response.html"><span>build</span><wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1358041079%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/build-response.html">T</a><span class="token operator"> : </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/index.html">McuMgrResponse</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/build-response.html"><span class="token function">buildResponse</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>scheme<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="../../no.nordicsemi.android.mcumgr/-mcu-mgr-scheme/index.html">McuMgrScheme</a><span class="token punctuation">, </span></span><span class="parameter ">bytes<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>type<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/build-response.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/build-response.html">T</a></div><div class="brief ">Build a McuMgrResponse.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-248686767%2FFunctions%2F290092119" anchor-label="getBytes" id="-248686767%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-bytes.html"><span>get</span><wbr><span><span>Bytes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-248686767%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-bytes.html"><span class="token function">getBytes</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span></div><div class="brief ">Get the response bytes.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-668088170%2FFunctions%2F290092119" anchor-label="getCoapCode" id="-668088170%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-coap-code.html"><span>get</span><wbr><span>Coap</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-668088170%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-coap-code.html"><span class="token function">getCoapCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">If this response is from a CoAP transport scheme, get the CoAP response code.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2144383169%2FFunctions%2F290092119" anchor-label="getExpectedLength" id="2144383169%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-expected-length.html"><span>get</span><wbr><span>Expected</span><wbr><span><span>Length</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2144383169%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-expected-length.html"><span class="token function">getExpectedLength</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>scheme<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="../../no.nordicsemi.android.mcumgr/-mcu-mgr-scheme/index.html">McuMgrScheme</a><span class="token punctuation">, </span></span><span class="parameter ">bytes<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">This method parses the given bytes and reads the LENGTH field from the header.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-110833920%2FFunctions%2F290092119" anchor-label="getGroupReturnCode" id="-110833920%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-group-return-code.html"><span>get</span><wbr><span>Group</span><wbr><span>Return</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-110833920%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-group-return-code.html"><span class="token function">getGroupReturnCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../no.nordicsemi.android.mcumgr.response/-has-return-code/-group-return-code/index.html">HasReturnCode.GroupReturnCode</a></div><div class="brief ">Return the Group return code as Group - Return Code pair.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-607598575%2FFunctions%2F290092119" anchor-label="getHeader" id="-607598575%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-header.html"><span>get</span><wbr><span><span>Header</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-607598575%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span></div></div><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-header.html"><span class="token function">getHeader</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span>&nbsp;</span><a href="../../no.nordicsemi.android.mcumgr/-mcu-mgr-header/index.html">McuMgrHeader</a></div><div class="brief ">Get the McuMgrHeader for this response.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1230994475%2FFunctions%2F290092119" anchor-label="getOsReturnCode" id="1230994475%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.managers/-default-manager/-response/get-os-return-code.html"><span>get</span><wbr><span>Os</span><wbr><span>Return</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1230994475%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span></div></div><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.managers/-default-manager/-response/get-os-return-code.html"><span class="token function">getOsReturnCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span>&nbsp;</span><a href="../../no.nordicsemi.android.mcumgr.managers/-default-manager/-return-code/index.html">DefaultManager.ReturnCode</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1052391474%2FFunctions%2F290092119" anchor-label="getPayload" id="-1052391474%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-payload.html"><span>get</span><wbr><span><span>Payload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1052391474%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-payload.html"><span class="token function">getPayload</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span>&nbsp;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span></div><div class="brief ">Get the response payload bytes.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1207435489%2FFunctions%2F290092119" anchor-label="getReturnCode" id="1207435489%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-return-code.html"><span>get</span><wbr><span>Return</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1207435489%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-return-code.html"><span class="token function">getReturnCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../no.nordicsemi.android.mcumgr/-mcu-mgr-error-code/index.html">McuMgrErrorCode</a></div><div class="brief ">Get the return code as an enum.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1508333336%2FFunctions%2F290092119" anchor-label="getReturnCodeValue" id="-1508333336%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-return-code-value.html"><span>get</span><wbr><span>Return</span><wbr><span>Code</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1508333336%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-return-code-value.html"><span class="token function">getReturnCodeValue</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Return the Mcu Manager return code as an int.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2064670727%2FFunctions%2F290092119" anchor-label="getScheme" id="-2064670727%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-scheme.html"><span>get</span><wbr><span><span>Scheme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2064670727%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/get-scheme.html"><span class="token function">getScheme</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../no.nordicsemi.android.mcumgr/-mcu-mgr-scheme/index.html">McuMgrScheme</a></div><div class="brief ">Get the scheme used to initialize this response object.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1125693733%2FFunctions%2F290092119" anchor-label="isSuccess" id="-1125693733%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/is-success.html"><span>is</span><wbr><span><span>Success</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1125693733%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/is-success.html"><span class="token function">isSuccess</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the response payload contains a return code of 0 or no return code.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1975830662%2FFunctions%2F290092119" anchor-label="toString" id="-1975830662%2FFunctions%2F290092119" data-filterable-set=":mcumgr-core/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":mcumgr-core/release" data-filterable-set=":mcumgr-core/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/to-string.html"><span>to</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1975830662%2FFunctions%2F290092119"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mcumgr-core/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../no.nordicsemi.android.mcumgr.response/-mcu-mgr-response/to-string.html"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></div><div class="brief ">Return the string representation of the response payload.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Copyright © 2022 - 2026 Nordic Semiconductor ASA. All Rights Reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
