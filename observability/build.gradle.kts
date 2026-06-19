@@ -41,12 +41,11 @@ group = "no.nordicsemi.android"
 nordicPublishing {
     POM_ARTIFACT_ID = "observability"
     POM_NAME = "Android Device Management Observability Library"
-
     POM_DESCRIPTION = "A Bluetooth LE gateway library for Monitoring and Diagnostics Service in nRF Cloud."
-    POM_URL = "https://github.com/NordicSemiconductor/Android-nRF-Connect-Device-Manager.git"
-    POM_SCM_URL = "https://github.com/NordicSemiconductor/Android-nRF-Connect-Device-Manager.git"
-    POM_SCM_CONNECTION = "scm:git@github.com:NordicSemiconductor/Android-nRF-Connect-Device-Manager.git"
-    POM_SCM_DEV_CONNECTION = "scm:git@github.com:NordicSemiconductor/Android-nRF-Connect-Device-Manager.git"
+    POM_URL = "https://github.com/nordicsemi/Android-nRF-Connect-Device-Manager/"
+    POM_SCM_URL = "https://github.com/nordicsemi/Android-nRF-Connect-Device-Manager/"
+    POM_SCM_CONNECTION = "scm:git@github.com:nordicsemi/Android-nRF-Connect-Device-Manager.git"
+    POM_SCM_DEV_CONNECTION = "scm:git@github.com:nordicsemi/Android-nRF-Connect-Device-Manager.git"
 }
 
 android {
