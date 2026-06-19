@@ -47,10 +47,8 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
@@ -73,6 +71,7 @@ import no.nordicsemi.kotlin.ble.core.OperationStatus
 import no.nordicsemi.kotlin.ble.core.WriteType
 import no.nordicsemi.kotlin.ble.environment.android.NativeAndroidEnvironment
 import org.slf4j.LoggerFactory
+import kotlin.coroutines.cancellation.CancellationException
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 import kotlin.uuid.ExperimentalUuidApi
@@ -191,7 +190,7 @@ class MonitoringAndDiagnosticsService {
 	/** The peripheral representing the device to connect to. */
 	private val peripheral: Peripheral
 	/** A flag set when no MDS service was found. */
-	private var notSupported = false
+	private var notSupported = true
 	/** A flag set when the bonding process failed. */
 	private var bondingFailed = false
 
@@ -364,22 +363,23 @@ class MonitoringAndDiagnosticsService {
 		}
 
 		// Observe the MDS service.
-		peripheral.services(listOf(MDS_SERVICE_UUID))
-			// services() returns a StateFlow which is initialized with null,
-			// indicating that the services are not yet discovered. Filter that out.
-			.filterNotNull()
-			// Initialize the MDS service on each service changed.
-			.onEach { services ->
-				// When the MDS service is discovered, it will be the only one in the list.
-				val mds = services.firstOrNull()
-
-				// Check if the MDS service is supported.
-				// The exception will be caught in the catch block below.
-				checkNotNull(mds) { "Monitoring & Diagnostics Service not supported" }
-
+		peripheral.profile(
+			// This scope closes on disconnection.
+			scope = this,
+			// The Service UUID.
+			serviceUuid = MDS_SERVICE_UUID,
+			// The client will disconnect with RequiredServiceNotFound if MDS is not supported.
+			required = true,
+			// The name of the profile is used for logging and debugging purposes.
+			name = "MDS",
+		) { mds ->
+			// This block is only executed when the service is discovered.
+			try {
 				_state.emit(value = State.Initializing)
 
-				// This method will throw if any of required characteristic is not supported.
+				// This method will throw IllegalArgumentException if any of required
+				// characteristic is not supported.
+				// This exception is caught by the called and reported as RequiredServiceNotFound.
 				val config = initialize(mds)
 
 				_state.emit(value = State.Connected(config))
@@ -388,19 +388,20 @@ class MonitoringAndDiagnosticsService {
 				start(mds)
 
 				logger.info("Monitoring & Diagnostics Service started successfully")
-			}
-			.catch { throwable ->
+			} catch (e: IllegalArgumentException) {
+				logger.warn(e.message)
+				// This exception is consumed by `profile` method to disconnect when
+				// any characteristic is missing, rethrow.
+				// It is thrown by `require` and `requireNotNull` methods.
+				throw e
+			} catch (e: CancellationException) {
+				logger.warn("MDS profile cancelled")
+				throw e
+			} catch (throwable: Throwable) {
 				logger.error(throwable.message)
-				// onEach above will throw IllegalStateException if the MDS service is not supported.
-				notSupported = throwable is IllegalStateException
-				// Some devices return OperationFailedException when bonding fails.
-				// This flag is also set by the bond state observer.
-				if (throwable is OperationFailedException && throwable.reason == OperationStatus.INSUFFICIENT_AUTHENTICATION) {
-					bondingFailed = true
-				}
 				peripheral.disconnect()
 			}
-			.launchIn(this)
+		}
 
 		try { awaitCancellation() }
 		finally {
@@ -416,31 +417,40 @@ class MonitoringAndDiagnosticsService {
 	}
 
 	private suspend fun CoroutineScope.initialize(mds: RemoteService): ChunksConfig {
-		// Read and emit device configuration.
-		val deviceId = mds.deviceIdCharacteristic.read()
-			.let { String(it) }
-		val url = mds.dataUriCharacteristic.read()
-			.let { String(it) }
-		val authorisationToken = mds.authorisationCharacteristic.read()
-			.let { AuthorisationHeader.parse(it) }
+		try {
+			// Read and emit device configuration.
+			val deviceId = mds.deviceIdCharacteristic.read()
+				.let { String(it) }
+			val url = mds.dataUriCharacteristic.read()
+				.let { String(it) }
+			val authorisationToken = mds.authorisationCharacteristic.read()
+				.let { AuthorisationHeader.parse(it) }
 
-		// Start listening to data collected by the device.
-		val deferred = CompletableDeferred<Unit>()
-		mds.dataExportCharacteristic
-			// Subscribe and enable notifications (on collection).
-			.subscribe { deferred.complete(Unit) }
-			// This will catch an exception thrown when subscribe fails,
-			// i.e. OperationFailedException(reason=Subscribe not permitted)
-			.catch { deferred.completeExceptionally(it) }
-			.buffer() // TODO is that needed?
-			// Emit the chunks to the flow.
-			.onEach { _chunks.emit(it) }
-			.launchIn(this)
+			// Start listening to data collected by the device.
+			val deferred = CompletableDeferred<Unit>()
+			mds.dataExportCharacteristic
+				// Subscribe and enable notifications (on collection).
+				.subscribe { deferred.complete(Unit) }
+				// This will catch an exception thrown when subscribe fails,
+				// i.e. OperationFailedException(reason=Subscribe not permitted)
+				.catch { deferred.completeExceptionally(it) }
+				// Emit the chunks to the flow.
+				.onEach { _chunks.emit(it) }
+				.launchIn(this)
 
-		// Make sure the notifications are enabled and subscribed to before returning.
-		deferred.await()
+			// Make sure the notifications are enabled and subscribed to before returning.
+			deferred.await()
 
-		return ChunksConfig(authorisationToken, url, deviceId)
+			// Mark the peripheral as supported.
+			notSupported = false
+
+			return ChunksConfig(authorisationToken, url, deviceId)
+		} catch (e: OperationFailedException) {
+			if (e.reason == OperationStatus.InsufficientAuthentication) {
+				bondingFailed = true
+			}
+			throw e
+		}
 	}
 
 	private suspend fun start(mds: RemoteService) {
@@ -453,31 +463,31 @@ class MonitoringAndDiagnosticsService {
 	private val RemoteService.supportedFeaturesCharacteristic
 		get() = characteristics
 			.find { it.uuid == MDS_SUPPORTED_FEATURES_CHARACTERISTIC_UUID }
-			.let { checkNotNull(it) { "Supported Features characteristic not found" } }
-			.also { check(it.properties.contains(CharacteristicProperty.READ)) { "Supported Features characteristic does not have READ property" } }
+			.let { requireNotNull(it) { "Supported Features characteristic not found" } }
+			.also { require(it.properties.contains(CharacteristicProperty.READ)) { "Supported Features characteristic does not have READ property" } }
 
 	private val RemoteService.deviceIdCharacteristic
 		get() = characteristics
 			.find { it.uuid == MDS_DEVICE_ID_CHARACTERISTIC_UUID }
-			.let { checkNotNull(it) { "Device ID characteristic not found" } }
-			.also { check(it.properties.contains(CharacteristicProperty.READ)) { "Device ID characteristic does not have READ property" } }
+			.let { requireNotNull(it) { "Device ID characteristic not found" } }
+			.also { require(it.properties.contains(CharacteristicProperty.READ)) { "Device ID characteristic does not have READ property" } }
 
 	private val RemoteService.dataUriCharacteristic
 		get() = characteristics
 			.find { it.uuid == MDS_DATA_URI_CHARACTERISTIC_UUID }
-			.let { checkNotNull(it) { "Data URI characteristic not found" } }
-			.also { check(it.properties.contains(CharacteristicProperty.READ)) { "Data URI characteristic does not have READ property" } }
+			.let { requireNotNull(it) { "Data URI characteristic not found" } }
+			.also { require(it.properties.contains(CharacteristicProperty.READ)) { "Data URI characteristic does not have READ property" } }
 
 	private val RemoteService.authorisationCharacteristic
 		get() = characteristics
 			.find { it.uuid == MDS_AUTHORISATION_CHARACTERISTIC_UUID }
-			.let { checkNotNull(it) { "Authorisation characteristic not found" } }
-			.also { check(it.properties.contains(CharacteristicProperty.READ)) { "Authorisation characteristic does not have READ property" } }
+			.let { requireNotNull(it) { "Authorisation characteristic not found" } }
+			.also { require(it.properties.contains(CharacteristicProperty.READ)) { "Authorisation characteristic does not have READ property" } }
 
 	private val RemoteService.dataExportCharacteristic
 		get() = characteristics
 			.find { it.uuid == MDS_DATA_EXPORT_CHARACTERISTIC_UUID }
-			.let { checkNotNull(it) { "Data Export characteristic not found" } }
-			.also { check(it.properties.contains(CharacteristicProperty.WRITE)) { "Data Export characteristic does not have WRITE property" } }
-			.also { check(it.properties.contains(CharacteristicProperty.NOTIFY)) { "Data Export characteristic does not have NOTIFY property" } }
+			.let { requireNotNull(it) { "Data Export characteristic not found" } }
+			.also { require(it.properties.contains(CharacteristicProperty.WRITE)) { "Data Export characteristic does not have WRITE property" } }
+			.also { require(it.properties.contains(CharacteristicProperty.NOTIFY)) { "Data Export characteristic does not have NOTIFY property" } }
 }
