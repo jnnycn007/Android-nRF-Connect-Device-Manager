@@ -38,7 +38,7 @@
             </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
-        <div class="library-version" id="library-version">3.2.0
+        <div class="library-version" id="library-version">3.3.0
         </div>
         <div class="navigation-controls">
         <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
@@ -93,7 +93,7 @@
   <div class="breadcrumbs"><a href="../index.html">observability</a><span class="delimiter">/</span><span class="current">no.nordicsemi.android.observability.data</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":observability/release"><p class="paragraph">Contains public data models used by the manager, such as <code class="lang-kotlin">Chunk</code> and <code class="lang-kotlin">ChunksConfig</code>.</p></div></div>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":observability/release"><p class="paragraph">Contains public data models used by the manager, such as <code class="lang-kotlin">Chunk</code> and <code class="lang-kotlin">ChunksConfig</code>, and the <code class="lang-kotlin">ChunksEmitter</code> interface decoupling <code class="lang-kotlin">ObservabilityManager</code> from emitter's implementation.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button></div>
@@ -126,6 +126,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":observability/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-chunks-config/index.html">ChunksConfig</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>authorisationToken<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>url<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The configuration data obtained from the device using Monitoring &amp; Diagnostics Service.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-742177092%2FClasslikes%2F1206634121" anchor-label="ChunksEmitter" id="-742177092%2FClasslikes%2F1206634121" data-filterable-set=":observability/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":observability/release" data-filterable-set=":observability/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-chunks-emitter/index.html"><span>Chunks</span><wbr><span><span>Emitter</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-742177092%2FClasslikes%2F1206634121"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":observability/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-chunks-emitter/index.html">ChunksEmitter</a></div><div class="brief "><p class="paragraph">The API of the source of diagnostics chunks.</p></div></div></div>
                 </div>
               </div>
             </div>

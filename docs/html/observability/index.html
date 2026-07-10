@@ -38,7 +38,7 @@
             </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
-        <div class="library-version" id="library-version">3.2.0
+        <div class="library-version" id="library-version">3.3.0
         </div>
         <div class="navigation-controls">
         <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
@@ -93,7 +93,7 @@
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>observability</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":observability/release"><p class="paragraph">Integration with <strong>nRF Cloud Monitoring </strong>&amp;<strong> Diagnostics Service (MDS)</strong>. </p><p class="paragraph">This module allows devices to upload binary "chunks" of data (e.g., logs, core dumps) to the  nRF Cloud via the mobile app using Bluetooth LE as transport protocol.</p><h2 class="">Key Components</h2><ul><li><p class="paragraph"><code class="strong lang-kotlin"><strong>ObservabilityManager</strong></code>: The main interface for managing the connection to a device supporting MDS. It handles chunk retrieval from the device and subsequent upload to nRF Cloud.</p></li><li><p class="paragraph"><code class="strong lang-kotlin"><strong>Chunk</strong></code>: Represents a piece of data retrieved from the device.</p></li></ul><h2 class="">Example</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val observabilityManager = ObservabilityManager.create(context)<br><br>// Connect to a device<br>observabilityManager.connect(environment, bluetoothDevice)<br><br>// Observe the state (connection status, chunks pending/uploaded, etc.)<br>lifecycleScope.launch {<br>    observabilityManager.state.collect { state -&gt;<br>        val connected = state.state is State.Connected<br>        val pending = state.chunksPending<br>        // Update UI...<br>    }<br>}<br><br>// Disconnect when done<br>observabilityManager.disconnect()</code></pre><span class="copy-tooltip"><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div><span class="copy-icon"></span></span></div></div></div>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":observability/release"><p class="paragraph">Integration with <strong>nRF Cloud Monitoring </strong>&amp;<strong> Diagnostics Service (MDS)</strong>. </p><p class="paragraph">This module allows devices to upload binary "chunks" of data (e.g., logs, core dumps) to the  nRF Cloud via the mobile app using Bluetooth LE as transport protocol.</p><p class="paragraph"><code class="lang-kotlin">ObservabilityManager</code> (which retrieves chunks and uploads them to nRF Cloud) is decoupled from how the underlying Bluetooth LE connection is obtained. This is achieved through <code class="lang-kotlin">ChunksEmitter</code>, a small interface exposing only <code class="lang-kotlin">state</code> and <code class="lang-kotlin">chunks</code>, which <code class="lang-kotlin">ObservabilityManager.connect()</code> collects from.</p><h2 class="">Key Components</h2><ul><li><p class="paragraph"><code class="strong lang-kotlin"><strong>ObservabilityManager</strong></code>: The main interface for retrieving chunks and uploading them to   nRF Cloud. It only depends on <code class="lang-kotlin">ChunksEmitter</code>; it never touches a <code class="lang-kotlin">Peripheral</code> or   <code class="lang-kotlin">CentralManager</code> directly.</p></li><li><p class="paragraph"><code class="strong lang-kotlin"><strong>ChunksEmitter</strong></code>: Interface exposing the <code class="lang-kotlin">state</code> and <code class="lang-kotlin">chunks</code> of a source of diagnostics   chunks, regardless of how the peripheral is connected.</p></li><li><p class="paragraph"><code class="strong lang-kotlin"><strong>MonitoringAndDiagnosticsProfile</strong></code>: A <code class="lang-kotlin">Profile</code> implementation of <code class="lang-kotlin">ChunksEmitter</code>   from the Kotlin BLE Library. It can be attached to any <code class="lang-kotlin">Peripheral</code>, connected elsewhere in the   application, using <code class="lang-kotlin">peripheral.profile(...)</code>. It never connects or disconnects the peripheral   itself - that remains the responsibility of whoever owns it.</p></li><li><p class="paragraph"><code class="strong lang-kotlin"><strong>MonitoringAndDiagnosticsConnection</strong></code>: A helper that owns the whole Bluetooth LE connection   (connecting, auto-reconnecting, bond state monitoring) and attaches   <code class="lang-kotlin">MonitoringAndDiagnosticsProfile</code> to it. Used internally by <code class="lang-kotlin">ObservabilityManager</code> for the   <code class="lang-kotlin">connect(peripheral, centralManager)</code> and <code class="lang-kotlin">connect(environment, device)</code> overloads; useful on   its own for apps that don't otherwise manage a Kotlin BLE Library <code class="lang-kotlin">Peripheral</code>.</p></li><li><p class="paragraph"><code class="strong lang-kotlin"><strong>Chunk</strong></code>: Represents a piece of data retrieved from the device.</p></li><li><p class="paragraph"><code class="strong lang-kotlin"><strong>ChunksUploader</strong></code>: An object for uploading enqueued chunks to nRF Cloud.</p></li></ul><h2 class="">Connecting</h2><p class="paragraph">Depending on how the application manages its Bluetooth LE connection, use one of:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val observabilityManager = ObservabilityManager.create(context)<br><br>// 1. The application already attached MonitoringAndDiagnosticsProfile (or another<br>//    ChunksEmitter implementation) to its own, already connected Peripheral.<br>val profile = MonitoringAndDiagnosticsProfile()<br>peripheral.profile(profile)<br>observabilityManager.connect(profile /*, required = true */)<br><br>// 2. Same as above, but the profile is optional. If required is<br>//    set to true and absent, the peripheral would disconnect automatically.<br>observabilityManager.connect(peripheral, required = false)<br><br>// 3. The application has a Peripheral, but nothing else connects it, e.g. it exists solely<br>//    for this feature. The manager will connect it using the given CentralManager.<br>observabilityManager.connect(peripheral, centralManager)<br><br>// 4. For applications that use native BluetoothDevice or the legacy<br>//    Android BLE Library, instead of the new Kotlin BLE Library.<br>observabilityManager.connect(environment, bluetoothDevice)<br><br>// Observe the state (connection status, chunks pending/uploaded, etc.)<br>lifecycleScope.launch {<br>    observabilityManager.state.collect { state -&gt;<br>        val connected = state.state is ChunksEmitter.State.Ready<br>        val pending = state.chunksPending<br>        // Update UI...<br>    }<br>}<br><br>// Stop collecting. If the manager owns the connection (options 2 and 4 above), it is also<br>// disconnected. Otherwise, the peripheral, owned by the caller, is left untouched.<br>observabilityManager.disconnect()</code></pre><span class="copy-tooltip"><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div><span class="copy-icon"></span></span></div><h2 class="">Logging</h2><p class="paragraph"><code class="lang-kotlin">MonitoringAndDiagnosticsProfile</code> and <code class="lang-kotlin">MonitoringAndDiagnosticsConnection</code> log using the Kotlin Util Library's <code class="lang-kotlin">Log.Sink&lt;Category&gt;</code> API, where <code class="lang-kotlin">Category</code> is this library's own <code class="lang-kotlin">Category.MDS</code> category. </p><p class="paragraph">By default, <code class="lang-kotlin">logger</code> is <code class="lang-kotlin">null</code> and nothing is logged; assign a <code class="lang-kotlin">Log.Sink&lt;Category&gt;</code> to observe log events. <code class="lang-kotlin">MonitoringAndDiagnosticsConnection</code> also implements <code class="lang-kotlin">Log.IdentifiableEmitter&lt;String&gt;</code>, tagging every log entry with the peripheral's MAC address, and forwards its <code class="lang-kotlin">logger</code> down to the <code class="lang-kotlin">MonitoringAndDiagnosticsProfile</code> it owns.</p></div></div>
   </div>
   <h2 class="">Packages</h2>
   <div class="table"><a data-name="-880097506%2FPackages%2F1206634121" anchor-label="no.nordicsemi.android.observability" id="-880097506%2FPackages%2F1206634121" data-filterable-set=":observability/release"></a>
@@ -132,7 +132,7 @@
           </div>
         </div>
         <div><span class="brief-comment"><a data-name="-2000358818%2FPackages%2F1206634121" anchor-label="no.nordicsemi.android.observability.bluetooth" id="-2000358818%2FPackages%2F1206634121" data-filterable-set=":observability/release"></a>
-            <p class="paragraph">Contains Bluetooth-related classes for the Monitoring &amp; Diagnostic Service.</p>
+            <p class="paragraph">Contains Bluetooth-related classes for the Monitoring &amp; Diagnostic Service: the <code class="lang-kotlin">MonitoringAndDiagnosticsProfile</code> implementation of <code class="lang-kotlin">ChunksEmitter</code>, and the <code class="lang-kotlin">MonitoringAndDiagnosticsConnection</code> helper that owns the Bluetooth LE connection.</p>
           </span></div>
       </div>
     </div>
@@ -152,7 +152,7 @@
           </div>
         </div>
         <div><span class="brief-comment"><a data-name="1386298110%2FPackages%2F1206634121" anchor-label="no.nordicsemi.android.observability.data" id="1386298110%2FPackages%2F1206634121" data-filterable-set=":observability/release"></a>
-            <p class="paragraph">Contains public data models used by the manager, such as <code class="lang-kotlin">Chunk</code> and <code class="lang-kotlin">ChunksConfig</code>.</p>
+            <p class="paragraph">Contains public data models used by the manager, such as <code class="lang-kotlin">Chunk</code> and <code class="lang-kotlin">ChunksConfig</code>, and the <code class="lang-kotlin">ChunksEmitter</code> interface decoupling <code class="lang-kotlin">ObservabilityManager</code> from emitter's implementation.</p>
           </span></div>
       </div>
     </div>
@@ -171,7 +171,29 @@
             </div>
           </div>
         </div>
-        <div></div>
+        <div><span class="brief-comment"><a data-name="-928159019%2FPackages%2F1206634121" anchor-label="no.nordicsemi.android.observability.internet" id="-928159019%2FPackages%2F1206634121" data-filterable-set=":observability/release"></a>
+            <p class="paragraph">Contains <code class="lang-kotlin">ChunksUploader</code>, an object responsible for uploading chunks to nRF Cloud, powered by Memfault.</p>
+          </span></div>
+      </div>
+    </div>
+<a data-name="1896642036%2FPackages%2F1206634121" anchor-label="no.nordicsemi.android.observability.log" id="1896642036%2FPackages%2F1206634121" data-filterable-set=":observability/release"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":observability/release" data-filterable-set=":observability/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="no.nordicsemi.android.observability.log/index.html">no.nordicsemi.android.observability.log</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1896642036%2FPackages%2F1206634121"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">release</div>
+            </div>
+          </div>
+        </div>
+        <div><span class="brief-comment"><a data-name="1896642036%2FPackages%2F1206634121" anchor-label="no.nordicsemi.android.observability.log" id="1896642036%2FPackages%2F1206634121" data-filterable-set=":observability/release"></a>
+            <p class="paragraph">Contains <code class="lang-kotlin">Category</code>, the <code class="lang-kotlin">Log.Category</code> used when logging events from this library.</p>
+          </span></div>
       </div>
     </div>
   </div>
