@@ -36,9 +36,11 @@ package no.nordicsemi.android.observability
 import android.bluetooth.BluetoothDevice
 import android.content.Context
 import kotlinx.coroutines.flow.StateFlow
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService.State.Connected
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService.State.Disconnected
+import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsConnection
+import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsProfile
+import no.nordicsemi.android.observability.data.ChunksEmitter
+import no.nordicsemi.android.observability.data.ChunksEmitter.State.Ready
+import no.nordicsemi.android.observability.data.ChunksEmitter.State.Disconnected
 import no.nordicsemi.android.observability.data.Chunk
 import no.nordicsemi.android.observability.data.ChunksConfig
 import no.nordicsemi.android.observability.internal.Scope
@@ -46,7 +48,6 @@ import no.nordicsemi.android.observability.internet.ChunkManager
 import no.nordicsemi.android.observability.internet.ChunkManager.State.Idle
 import no.nordicsemi.kotlin.ble.client.android.CentralManager
 import no.nordicsemi.kotlin.ble.client.android.Peripheral
-import no.nordicsemi.kotlin.ble.client.android.native
 import no.nordicsemi.kotlin.ble.environment.android.NativeAndroidEnvironment
 
 /**
@@ -70,7 +71,7 @@ interface ObservabilityManager {
      * @property chunks A list of chunks that were received in this session.
      */
     data class State(
-        val state: MonitoringAndDiagnosticsService.State = Disconnected(),
+        val state: ChunksEmitter.State = Disconnected,
         val uploadingState: ChunkManager.State = Idle,
         val chunks: List<Chunk> = emptyList()
     ) {
@@ -87,7 +88,7 @@ interface ObservabilityManager {
          * This is only available when the device is connected and MDS service was read successfully.
          */
         val config: ChunksConfig?
-            get() = (state as? Connected)?.config
+            get() = (state as? Ready)?.config
     }
 
     /**
@@ -101,26 +102,75 @@ interface ObservabilityManager {
     val state: StateFlow<State>
 
     /**
-     * Function used to connect to the selected Bluetooth LE peripheral.
+     * Function used to start collecting data from an [ChunksEmitter] and uploading them to
+     * nRF Cloud, powered by Memfault.
      *
-     * The peripheral must support Monitoring & Diagnostic Service.
+     * Chunks upload will start as soon as the profile reports
+     * [Connected][ChunksEmitter.State.Ready], and will resume automatically every
+     * time the profile reconnects.
      *
-     * Chunks upload will start immediately after establishing the connection.
+     * Calling this method when already connected will throw an exception.
      *
-     * This method allows using mock central manager, which is useful for testing purposes.
+     * @param source The [ChunksEmitter] to collect [ChunksEmitter.state] and
+     * [ChunksEmitter.chunks] from.
+     * @throws IllegalStateException if the manager is already connected.
+     */
+    fun connect(source: ChunksEmitter)
+
+    /**
+     * Function used to start collecting observability data from the given [Peripheral].
      *
-     * Calling this method with an already connected peripheral will throw an exception.
+     * Use this method for applications that already have their own connected [Peripheral],
+     * e.g. obtained and connected using the Kotlin BLE Library elsewhere in the application.
+     * This manager will not manage the peripheral's connection in any way; it is entirely the
+     * caller's responsibility.
+     *
+     * @param peripheral The already connected [Peripheral] to attach the profile to.
+     * @param required Whether the Monitoring & Diagnostic Service is required. If `true` and the
+     * peripheral does not support it, the peripheral will be disconnected. As [peripheral] may be
+     * shared with other features, this defaults to `false`.
+     * @throws IllegalStateException if the manager is already connected.
+     */
+    fun connect(peripheral: Peripheral, required: Boolean = false) {
+        val profile = MonitoringAndDiagnosticsProfile()
+        peripheral.profile(scope = Scope, profile = profile, required = required)
+        connect(profile)
+    }
+
+    /**
+     * Function used to connect to the given [Peripheral] using the given [CentralManager], and
+     * start collecting observability data from it.
+     *
+     * Unlike [connect(peripheral, required)][connect], this manager will fully own the
+     * connection: it connects the peripheral itself (auto-reconnecting as needed) using the
+     * given [centralManager], instead of assuming it is already connected elsewhere.
+     *
+     * Use this, for example, when [peripheral] and [centralManager] exist solely to back this
+     * feature (nothing else in the application connects them), or with a mock [CentralManager]
+     * for testing.
+     *
+     * If the Monitoring & Diagnostic Service will not be found on the `Perihoeral`,
+     * the connection will terminate with reason
+     * [NOT_SUPPORTED][MonitoringAndDiagnosticsConnection.State.Disconnected.Reason.NOT_SUPPORTED].
      *
      * @param peripheral [Peripheral] to which the manager should connect.
      * @param centralManager [CentralManager] to use to connect to the peripheral.
      * @throws IllegalStateException if the manager is already connected to a peripheral.
      */
-    fun connect(peripheral: Peripheral, centralManager: CentralManager)
+    fun connect(peripheral: Peripheral, centralManager: CentralManager) {
+        val connection = MonitoringAndDiagnosticsConnection(centralManager, peripheral, Scope)
+        connection.start()
+        connect(connection.profile)
+    }
 
     /**
      * Function used to connect to the selected Bluetooth LE peripheral.
      *
      * The peripheral must support Monitoring & Diagnostic Service.
+     *
+     * This method is for legacy applications that don't use `Peripheral` from the Kotlin BLE
+     * Library, and only have a [BluetoothDevice]. This manager will create and fully own the
+     * connection to the device, connecting automatically and reconnecting as needed.
      *
      * Chunks upload will start immediately after establishing the connection.
      *
@@ -129,13 +179,18 @@ interface ObservabilityManager {
      * @throws IllegalStateException if the manager is already connected to a peripheral.
      */
     fun connect(environment: NativeAndroidEnvironment, device: BluetoothDevice) {
-        val centralManager = CentralManager.native(environment, Scope)
-        val peripheral = centralManager.getPeripheralById(device.address)!!
-        connect(peripheral, centralManager)
+        val connection = MonitoringAndDiagnosticsConnection(environment, device, Scope)
+        connection.start()
+        connect(connection.profile)
     }
 
     /**
-     * Disconnects the connected peripheral.
+     * Disconnects.
+     *
+     * If the manager owns the connection, e.g. after calling
+     * [connect(environment, device)][connect], the underlying peripheral will also be
+     * disconnected. Otherwise, this method only stops collecting data from the profile; the
+     * peripheral connection, owned by the caller, is left untouched.
      */
     fun disconnect()
 
@@ -144,7 +199,7 @@ interface ObservabilityManager {
         /**
          * This function creates a new instance of [ObservabilityManager].
          *
-         * @param context Android [Context] need to initialize the chunks database.
+         * @param context Android [Context] need to initialize the chunks' database.
          * @return new [ObservabilityManager] instance
          */
         @JvmStatic

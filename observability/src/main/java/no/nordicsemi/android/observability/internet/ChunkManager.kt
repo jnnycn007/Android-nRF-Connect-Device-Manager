@@ -118,8 +118,19 @@ class ChunkManager(
             chunkQueue?.let { setChunkQueue(it) }
         }
         .build()
+
     /** A flag indicating whether the manager is closed. */
     private var closed = false
+
+    /**
+     * Enqueue the chunks for the given device.
+     *
+     * The chunks will be added to the [ChunkQueue].
+     *
+     * @param chunks the chunks to be enqueued and sent to the server.
+     */
+    @IgnorableReturnValue
+    fun addChunks(chunks: List<ByteArray>) = sender.addChunks(chunks)
 
     /**
      * Uploads already collected chunks to the cloud.

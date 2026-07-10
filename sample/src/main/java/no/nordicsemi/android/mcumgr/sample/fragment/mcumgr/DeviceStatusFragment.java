@@ -26,7 +26,7 @@ import no.nordicsemi.android.mcumgr.sample.dialog.HelpDialogFragment;
 import no.nordicsemi.android.mcumgr.sample.viewmodel.mcumgr.DeviceStatusViewModel;
 import no.nordicsemi.android.mcumgr.sample.viewmodel.mcumgr.FeatureState;
 import no.nordicsemi.android.mcumgr.sample.viewmodel.mcumgr.McuMgrViewModelFactory;
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService;
+import no.nordicsemi.android.observability.data.ChunksEmitter;
 import no.nordicsemi.android.ota.DeviceInfo;
 
 public class DeviceStatusFragment extends Fragment implements Injectable {
@@ -175,21 +175,12 @@ public class DeviceStatusFragment extends Fragment implements Injectable {
         });
         viewModel.getObservabilityState().observe(getViewLifecycleOwner(), state -> {
             switch (state) {
-                case MonitoringAndDiagnosticsService.State.Connecting ignored ->
+                case ChunksEmitter.State.Initializing ignored ->
                         binding.observabilitySupported.setText(R.string.status_connecting);
-                case MonitoringAndDiagnosticsService.State.Initializing ignored ->
-                        binding.observabilitySupported.setText(R.string.status_connecting);
-                case MonitoringAndDiagnosticsService.State.Connected ignored ->
+                case ChunksEmitter.State.Ready ignored ->
                         binding.observabilitySupported.setText(R.string.status_mds_supported);
-                case MonitoringAndDiagnosticsService.State.Disconnected disconnected -> {
-                    switch (disconnected.getReason()) {
-                        case NOT_SUPPORTED -> binding.observabilitySupported.setText(R.string.status_not_supported);
-                        case BONDING_FAILED -> binding.observabilitySupported.setText(R.string.status_bonding_failed);
-                        case FAILED_TO_CONNECT, TIMEOUT, CONNECTION_LOST ->
-                                binding.observabilitySupported.setText(R.string.status_disconnected);
-                        case null -> binding.observabilitySupported.setText(R.string.status_disconnected);
-                    }
-                }
+                case ChunksEmitter.State.Disconnected disconnected ->
+                        binding.observabilitySupported.setText(R.string.status_disconnected);
                 case null,
                 default -> binding.observabilitySupported.setText(R.string.status_unknown);
             }

@@ -13,6 +13,7 @@ import no.nordicsemi.kotlin.ble.client.android.Peripheral;
 
 @Module
 public class ObservabilityModule {
+
     @Provides
     @McuMgrScope
     @NonNull
@@ -23,5 +24,4 @@ public class ObservabilityModule {
         om.connect(peripheral, centralManager);
         return om;
     }
-
 }
