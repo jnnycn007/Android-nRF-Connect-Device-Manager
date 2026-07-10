@@ -38,6 +38,7 @@ no.nordicsemi.android.observability
 no.nordicsemi.android.observability.bluetooth
 no.nordicsemi.android.observability.data
 no.nordicsemi.android.observability.internet
+no.nordicsemi.android.observability.log
 module:ota
 no.nordicsemi.android.ota
 no.nordicsemi.android.ota.mcumgr
