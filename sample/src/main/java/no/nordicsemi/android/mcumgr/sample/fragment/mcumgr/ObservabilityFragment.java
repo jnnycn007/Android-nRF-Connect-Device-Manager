@@ -20,7 +20,7 @@ import no.nordicsemi.android.mcumgr.sample.dialog.HelpDialogFragment;
 import no.nordicsemi.android.mcumgr.sample.viewmodel.mcumgr.McuMgrViewModelFactory;
 import no.nordicsemi.android.mcumgr.sample.viewmodel.mcumgr.ObservabilityViewModel;
 import no.nordicsemi.android.observability.data.ChunksEmitter.State;
-import no.nordicsemi.android.observability.internet.ChunkManager;
+import no.nordicsemi.android.observability.internet.ChunksUploader;
 
 public class ObservabilityFragment extends Fragment implements Injectable {
 
@@ -72,17 +72,17 @@ public class ObservabilityFragment extends Fragment implements Injectable {
                             binding.mds.setText(R.string.observability_connecting);
                     case State.Ready ignored1 -> {
                         switch (state.getUploadingState()) {
-                            case ChunkManager.State.Idle ignored -> {
+                            case ChunksUploader.State.Idle ignored -> {
                                 binding.mds.setText(R.string.observability_connected);
                                 binding.mdsSent.setText(getResources().getQuantityString(R.plurals.observability_value, state.getChunksUploaded(), state.getChunksUploaded(), state.getBytesUploaded()));
                                 binding.mdsPending.setText(getResources().getQuantityString(R.plurals.observability_value, state.getChunksPending(), state.getChunksPending(), state.getBytesPending()));
                             }
-                            case ChunkManager.State.InProgress ignored -> {
+                            case ChunksUploader.State.InProgress ignored -> {
                                 binding.mds.setText(R.string.observability_uploading);
                                 binding.mdsSent.setText(getResources().getQuantityString(R.plurals.observability_value, state.getChunksUploaded(), state.getChunksUploaded(), state.getBytesUploaded()));
                                 binding.mdsPending.setText(getResources().getQuantityString(R.plurals.observability_value, state.getChunksPending(), state.getChunksPending(), state.getBytesPending()));
                             }
-                            case ChunkManager.State.Suspended suspended ->{
+                            case ChunksUploader.State.Suspended suspended ->{
                                 binding.mds.setText(getString(R.string.observability_suspended, suspended.getDelayInSeconds()));
                                 binding.mdsSent.setText(getResources().getQuantityString(R.plurals.observability_value, state.getChunksUploaded(), state.getChunksUploaded(), state.getBytesUploaded()));
                                 binding.mdsPending.setText(getResources().getQuantityString(R.plurals.observability_value, state.getChunksPending(), state.getChunksPending(), state.getBytesPending()));

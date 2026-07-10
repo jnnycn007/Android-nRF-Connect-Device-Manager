@@ -44,8 +44,8 @@ import no.nordicsemi.android.observability.data.ChunksEmitter.State.Disconnected
 import no.nordicsemi.android.observability.data.Chunk
 import no.nordicsemi.android.observability.data.ChunksConfig
 import no.nordicsemi.android.observability.internal.Scope
-import no.nordicsemi.android.observability.internet.ChunkManager
-import no.nordicsemi.android.observability.internet.ChunkManager.State.Idle
+import no.nordicsemi.android.observability.internet.ChunksUploader
+import no.nordicsemi.android.observability.internet.ChunksUploader.State.Idle
 import no.nordicsemi.kotlin.ble.client.android.CentralManager
 import no.nordicsemi.kotlin.ble.client.android.Peripheral
 import no.nordicsemi.kotlin.ble.environment.android.NativeAndroidEnvironment
@@ -72,7 +72,7 @@ interface ObservabilityManager {
      */
     data class State(
         val state: ChunksEmitter.State = Disconnected,
-        val uploadingState: ChunkManager.State = Idle,
+        val uploadingState: ChunksUploader.State = Idle,
         val chunks: List<Chunk> = emptyList()
     ) {
         /** Number of chunks that are ready to be uploaded. */

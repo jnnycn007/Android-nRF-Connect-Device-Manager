@@ -60,7 +60,7 @@ import kotlin.time.Duration.Companion.seconds
  * queue will be used. Use [PersistentChunkQueue] for persistent storage using.
  * @property status A [StateFlow] representing the current status of the manager.
  */
-class ChunkManager(
+class ChunksUploader(
     config: ChunksConfig,
     chunkQueue: ChunkQueue? = null,
 ) {
