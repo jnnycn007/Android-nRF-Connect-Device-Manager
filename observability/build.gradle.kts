@@ -60,16 +60,14 @@ dependencies {
 
     // By default, the native Central Manager is used, but user may set mock implementation
     // from "no.nordicsemi.kotlin.ble:client-android-mock".
-    implementation(nordic.blek.client.android)
+    api(nordic.blek.client.android)
+    api(nordic.kotlin.log)
 
     implementation(libs.kotlinx.coroutines.android)
 
     ksp(libs.room.compiler)
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-
-    // Use SLF4J for logging.
-    implementation(libs.slf4j)
 }
 
 dokka {

@@ -2,8 +2,8 @@
 
 package no.nordicsemi.android.observability.internal
 
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService.State
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService.State.Disconnected.Reason
+import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsConnection.State
+import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsConnection.State.Disconnected.Reason
 import no.nordicsemi.kotlin.ble.core.ConnectionState
 import no.nordicsemi.kotlin.ble.core.ConnectionState.Connected
 import no.nordicsemi.kotlin.ble.core.ConnectionState.Connecting

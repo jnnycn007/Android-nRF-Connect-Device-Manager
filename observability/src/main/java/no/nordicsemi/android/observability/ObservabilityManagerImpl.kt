@@ -32,30 +32,29 @@
 package no.nordicsemi.android.observability
 
 import android.Manifest
+import android.bluetooth.BluetoothDevice
 import android.content.Context
 import androidx.annotation.RequiresPermission
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.awaitCancellation
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService.State.Connected
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService.State.Connecting
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService.State.Disconnected
+import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsConnection
+import no.nordicsemi.android.observability.data.ChunksEmitter
+import no.nordicsemi.android.observability.data.ChunksEmitter.State.Ready
 import no.nordicsemi.android.observability.data.PersistentChunkQueue
 import no.nordicsemi.android.observability.internal.Scope
 import no.nordicsemi.android.observability.internet.ChunkManager
 import no.nordicsemi.kotlin.ble.client.android.CentralManager
 import no.nordicsemi.kotlin.ble.client.android.Peripheral
+import no.nordicsemi.kotlin.ble.environment.android.NativeAndroidEnvironment
 import kotlin.time.Duration.Companion.milliseconds
 
 internal class ObservabilityManagerImpl(
@@ -67,113 +66,119 @@ internal class ObservabilityManagerImpl(
     private val _state = MutableStateFlow(ObservabilityManager.State())
     override val state: StateFlow<ObservabilityManager.State> = _state.asStateFlow()
 
-    private var service: MonitoringAndDiagnosticsService? = null
+    private var job: Job? = null
+    /** Set only when this manager created and owns the connection, see [connect]. */
+    private var ownedConnection: MonitoringAndDiagnosticsConnection? = null
     private var chunkQueue: PersistentChunkQueue? = null
     private var uploadManager: ChunkManager? = null
 
     @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
-    override fun connect(peripheral: Peripheral, centralManager: CentralManager) {
-        check(service == null) { "Already connected to a peripheral" }
+    override fun connect(source: ChunksEmitter) {
+        check(job == null) { "Already connected" }
 
-        // Set up the collector for observable chunks from the device.
-        Scope.launch {
-            service = MonitoringAndDiagnosticsService(centralManager, peripheral, this)
-                .apply {
-                    var connection: Job? = null
-                    // Collect the state of the device and update the state flow.
-                    state
-                        .drop(1) // Skip initial Disconnected state.
-                        .onEach { state ->
-                            _state.value = _state.value.copy(state = state)
+        job = Scope.launch {
+            var connection: Job? = null
 
-                            if (state is Connected) {
-                                assert(connection?.isCancelled ?: true) {
-                                    "Connection scope should be null or cancelled when the config is received"
+            // Collect the state of the profile and update the state flow.
+            source.state
+                .onEach { state ->
+                    _state.value = _state.value.copy(state = state)
+
+                    if (state is Ready) {
+                        connection = launch {
+                            chunkQueue = PersistentChunkQueue(
+                                context = context,
+                                deviceId = state.config.deviceId
+                            ).also { queue ->
+                                queue.chunks
+                                    .onEach {
+                                        _state.value = _state.value.copy(chunks = it)
+                                    }
+                                    .launchIn(this)
+                            }
+                            uploadManager = ChunkManager(
+                                config = state.config,
+                                chunkQueue = chunkQueue
+                            ).also { manager ->
+                                manager.status
+                                    .onEach {
+                                        _state.value = _state.value.copy(uploadingState = it)
+                                    }
+                                    .launchIn(this)
+                                // Upload any chunks that were already in the queue.
+                                manager.uploadChunks()
+                            }
+
+                            try {
+                                awaitCancellation()
+                            } finally {
+                                // Manager is closing. Flush any remaining chunks.
+                                withContext(NonCancellable) {
+                                    uploadManager?.uploadChunks()
+                                    uploadManager?.close()
+                                    uploadManager = null
                                 }
 
-                                connection = launch {
-                                    chunkQueue = PersistentChunkQueue(
-                                        context = context,
-                                        deviceId = state.config.deviceId
-                                    ).also { queue ->
-                                        queue.chunks
-                                            .onEach {
-                                                _state.value = _state.value.copy(chunks = it)
-                                            }
-                                            .launchIn(this)
-                                    }
-                                    uploadManager = ChunkManager(
-                                        config = state.config,
-                                        chunkQueue = chunkQueue
-                                    ).also { manager ->
-                                        manager.status
-                                            .onEach {
-                                                _state.value = _state.value.copy(uploadingState = it)
-                                            }
-                                            .launchIn(this)
-                                        // Upload any chunks that were already in the queue.
-                                        manager.uploadChunks()
-                                    }
-
-                                    try {
-                                        awaitCancellation()
-                                    } finally {
-                                        // Manager is closing. Flush any remaining chunks.
-                                        withContext(NonCancellable) {
-                                            uploadManager?.uploadChunks()
-                                            uploadManager?.close()
-                                            uploadManager = null
-                                        }
-
-                                        // Remove all uploaded chunks from the queue.
-                                        chunkQueue?.deleteUploaded()
-                                        chunkQueue = null
-                                    }
-                                }
-                            }
-                            if (state is Connecting) {
-                                // Otherwise, the device must have been disconnected.
-                                connection?.cancel()
-                                connection = null
-                            }
-                            if (state is Disconnected) {
-                                cancel()
+                                // Remove all uploaded chunks from the queue.
+                                chunkQueue?.deleteUploaded()
+                                chunkQueue = null
                             }
                         }
-                        .launchIn(this@launch)
-
-                    // Collect the chunks received from the device and upload them to the cloud.
-                    chunks
-                        .onEach {
-                            // Mind, that that has to be called from a non-main Dispatcher
-                            withContext(NonCancellable) {
-                                chunkQueue?.addChunks(listOf(it))
-                            }
-                        }
-                        // Don't upload chunks immediately, but debounce the flow to avoid
-                        // multiple uploads in a short time.
-                        .debounce(300.milliseconds)
-                        .onEach {
-                            uploadManager?.uploadChunks()
-                        }
-                        .launchIn(this@launch)
+                    } else {
+                        // The profile is not (yet, or no longer) connected.
+                        // The profile may reconnect on its own; wait for the next Connected state.
+                        connection?.cancel()
+                        connection = null
+                    }
                 }
+                .launchIn(this)
 
-            // Start the MDS service handler to connect to the device and start receiving data.
-            service?.start()
+            // Collect the chunks received from the device and upload them to the cloud.
+            source.chunks
+                .onEach {
+                    // Mind, that that has to be called from a non-main Dispatcher
+                    withContext(NonCancellable) {
+                        uploadManager?.addChunks(listOf(it))
+                    }
+                }
+                // Don't upload chunks immediately, but debounce the flow to avoid
+                // multiple uploads in a short time.
+                .debounce(300.milliseconds)
+                .onEach {
+                    uploadManager?.uploadChunks()
+                }
+                .launchIn(this)
 
-            // Wait for disconnection.
-            try { awaitCancellation() }
-            finally {
-                // Clean up the BLE manager when the scope is cancelled.
-                service?.close()
-                service = null
-            }
+            awaitCancellation()
         }
     }
 
+    @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
+    override fun connect(peripheral: Peripheral, centralManager: CentralManager) {
+        check(job == null) { "Already connected" }
+
+        val connection = MonitoringAndDiagnosticsConnection(centralManager, peripheral, Scope)
+        ownedConnection = connection
+        connection.start()
+        connect(connection.profile)
+    }
+
+    @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
+    override fun connect(environment: NativeAndroidEnvironment, device: BluetoothDevice) {
+        check(job == null) { "Already connected" }
+
+        val connection = MonitoringAndDiagnosticsConnection(environment, device, Scope)
+        ownedConnection = connection
+        connection.start()
+        connect(connection.profile)
+    }
+
     override fun disconnect() {
-        service?.close()
-        service = null
+        job?.cancel()
+        job = null
+
+        // If this manager created the connection itself, close it too.
+        ownedConnection?.close()
+        ownedConnection = null
     }
 }
