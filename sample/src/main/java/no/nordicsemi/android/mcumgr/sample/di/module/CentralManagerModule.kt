@@ -34,7 +34,7 @@ class CentralManagerModule {
     @McuMgrScope
     fun providesCentralManager(environment: NativeAndroidEnvironment, scope: CoroutineScope): CentralManager {
         return CentralManager.native(environment, scope)
-            .also { it.logger = Log.Sink.Timber() }
+            .also { it.logger = Log.Sink.Timber { _, _ -> true } }
     }
 }
 
