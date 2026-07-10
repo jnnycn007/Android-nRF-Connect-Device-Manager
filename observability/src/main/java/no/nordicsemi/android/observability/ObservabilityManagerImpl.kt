@@ -51,7 +51,7 @@ import no.nordicsemi.android.observability.data.ChunksEmitter
 import no.nordicsemi.android.observability.data.ChunksEmitter.State.Ready
 import no.nordicsemi.android.observability.data.PersistentChunkQueue
 import no.nordicsemi.android.observability.internal.Scope
-import no.nordicsemi.android.observability.internet.ChunkManager
+import no.nordicsemi.android.observability.internet.ChunksUploader
 import no.nordicsemi.kotlin.ble.client.android.CentralManager
 import no.nordicsemi.kotlin.ble.client.android.Peripheral
 import no.nordicsemi.kotlin.ble.environment.android.NativeAndroidEnvironment
@@ -70,7 +70,7 @@ internal class ObservabilityManagerImpl(
     /** Set only when this manager created and owns the connection, see [connect]. */
     private var ownedConnection: MonitoringAndDiagnosticsConnection? = null
     private var chunkQueue: PersistentChunkQueue? = null
-    private var uploadManager: ChunkManager? = null
+    private var uploadManager: ChunksUploader? = null
 
     @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
     override fun connect(source: ChunksEmitter) {
@@ -96,7 +96,7 @@ internal class ObservabilityManagerImpl(
                                     }
                                     .launchIn(this)
                             }
-                            uploadManager = ChunkManager(
+                            uploadManager = ChunksUploader(
                                 config = state.config,
                                 chunkQueue = chunkQueue
                             ).also { manager ->
