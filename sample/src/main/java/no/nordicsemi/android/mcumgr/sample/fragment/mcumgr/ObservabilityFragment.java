@@ -19,7 +19,7 @@ import no.nordicsemi.android.mcumgr.sample.di.Injectable;
 import no.nordicsemi.android.mcumgr.sample.dialog.HelpDialogFragment;
 import no.nordicsemi.android.mcumgr.sample.viewmodel.mcumgr.McuMgrViewModelFactory;
 import no.nordicsemi.android.mcumgr.sample.viewmodel.mcumgr.ObservabilityViewModel;
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService.State;
+import no.nordicsemi.android.observability.data.ChunksEmitter.State;
 import no.nordicsemi.android.observability.internet.ChunkManager;
 
 public class ObservabilityFragment extends Fragment implements Injectable {
@@ -66,21 +66,11 @@ public class ObservabilityFragment extends Fragment implements Injectable {
         viewModel.getState().observe(getViewLifecycleOwner(), state -> {
             if (state != null) {
                 switch (state.getState()) {
-                    case State.Disconnected disconnected -> {
-                        switch (disconnected.getReason()) {
-                            case NOT_SUPPORTED ->
-                                    binding.mds.setText(R.string.status_not_supported);
-                            case null ->
-                                    binding.mds.setText(R.string.status_unknown);
-                            default ->
-                                    binding.mds.setText(R.string.observability_disconnected);
-                        }
-                    }
-                    case State.Connecting ignored ->
-                            binding.mds.setText(R.string.observability_connecting);
+                    case State.Disconnected ignored ->
+                            binding.mds.setText(R.string.observability_disconnected);
                     case State.Initializing ignored ->
                             binding.mds.setText(R.string.observability_connecting);
-                    case State.Connected ignored1 -> {
+                    case State.Ready ignored1 -> {
                         switch (state.getUploadingState()) {
                             case ChunkManager.State.Idle ignored -> {
                                 binding.mds.setText(R.string.observability_connected);

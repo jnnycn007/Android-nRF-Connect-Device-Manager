@@ -22,7 +22,7 @@ import no.nordicsemi.android.mcumgr.response.dflt.McuMgrParamsResponse
 import no.nordicsemi.android.mcumgr.sample.observable.ConnectionState
 import no.nordicsemi.android.mcumgr.sample.observable.ObservableMcuMgrBleTransport
 import no.nordicsemi.android.observability.ObservabilityManager
-import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsService
+import no.nordicsemi.android.observability.data.ChunksEmitter
 import no.nordicsemi.android.ota.DeviceInfo
 import no.nordicsemi.android.ota.mcumgr.MemfaultDeviceInfoResponse
 import no.nordicsemi.android.ota.mcumgr.MemfaultManager
@@ -55,7 +55,7 @@ class DeviceStatusViewModel @Inject internal constructor(
     private val activeB0SlotLiveData = MutableLiveData<Int?>()
     private val appInfoLiveData = MutableLiveData<String?>()
     private val otaLiveData = MutableLiveData<FeatureState<DeviceInfo>>(FeatureState.Unknown)
-    private val observabilityLiveData = MutableLiveData<MonitoringAndDiagnosticsService.State?>()
+    private val observabilityLiveData = MutableLiveData<ChunksEmitter.State?>()
     private val connectionStateObserver = Observer { connectionState: ConnectionState? ->
         if (connectionState == ConnectionState.READY) {
             // Read sequentially:
@@ -136,7 +136,7 @@ class DeviceStatusViewModel @Inject internal constructor(
     val otaInfo: LiveData<FeatureState<DeviceInfo>?>
         get() = otaLiveData
 
-    val observabilityState: LiveData<MonitoringAndDiagnosticsService.State?>
+    val observabilityState: LiveData<ChunksEmitter.State?>
         get() = observabilityLiveData
 
     class McuMgrBufferParams {
