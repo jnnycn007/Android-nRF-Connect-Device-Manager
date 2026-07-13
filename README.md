@@ -31,7 +31,7 @@ For versions 2.x use *version2* branch or tags.
 Contains the core and a BLE transport implementation using Nordic's [Android-BLE-Library v2](https://github.com/nordicsemi/Android-BLE-Library).
 
 ```groovy
-implementation 'no.nordicsemi.android:mcumgr-ble:2.9.0'
+implementation 'no.nordicsemi.android:mcumgr-ble:3.3.1'
 ```
 
 The core module will be included automatically.
@@ -42,7 +42,7 @@ The core module will be included automatically.
 Core dependency only. Use if you want to provide your own transport implementation.
 
 ```groovy
-implementation 'no.nordicsemi.android:mcumgr-core:2.9.0'
+implementation 'no.nordicsemi.android:mcumgr-core:3.3.1'
 ```
 
 > Latest version targeting API 30 (Android 11) is 0.13.0-beta07.
@@ -71,9 +71,9 @@ Dokka documentation can be found [here](https://nordicsemi.github.io/Android-nRF
 
 ## Command Groups
 
-Commands in Mcu Manager are organized by functionality into command groups. 
+Commands in Mcu Manager are organized by functionality into command groups.
 
-In this Android library, command groups are called managers and extend the `McuManager` class. 
+In this Android library, command groups are called managers and extend the `McuManager` class.
 The managers (groups) implemented in the library are:
 
 * **`DefaultManager`**: Contains commands relevant to the OS. This includes task and memory pool
