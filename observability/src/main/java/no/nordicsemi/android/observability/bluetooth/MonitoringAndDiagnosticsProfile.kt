@@ -52,6 +52,7 @@ import no.nordicsemi.android.observability.ObservabilityManager
 import no.nordicsemi.android.observability.data.ChunksEmitter
 import no.nordicsemi.android.observability.data.ChunksConfig
 import no.nordicsemi.android.observability.internal.AuthorisationHeader
+import no.nordicsemi.android.observability.internal.shortened
 import no.nordicsemi.android.observability.log.Category
 import no.nordicsemi.kotlin.ble.client.Profile
 import no.nordicsemi.kotlin.ble.client.RemoteCharacteristic
@@ -144,7 +145,9 @@ open class MonitoringAndDiagnosticsProfile : Profile.Simple(
             val url = dataUriCharacteristic.read().let { String(it) }
             logger?.i { "Data URL: $url" }
             val authorisationToken = authorisationCharacteristic.read().let { AuthorisationHeader.parse(it) }
-            logger?.i { "Project Key: $authorisationToken" }
+            // Note: If debug logging is enabled in the Peripheral, the key may be logged as bytes
+            //       on DEBUG level. However, this is a public, write-only key. No big deal.
+            logger?.i { "Project Key: ${authorisationToken.shortened()}" }
 
             // Start listening to data collected by the device.
             logger?.v { "Enabling Data export notifications..." }
