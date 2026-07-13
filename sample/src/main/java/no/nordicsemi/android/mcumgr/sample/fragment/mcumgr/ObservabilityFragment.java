@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -66,10 +67,15 @@ public class ObservabilityFragment extends Fragment implements Injectable {
         viewModel.getState().observe(getViewLifecycleOwner(), state -> {
             if (state != null) {
                 switch (state.getState()) {
-                    case State.Disconnected ignored ->
+                    case State.Disconnected ignored -> {
+                        if (state.getUploadingState() instanceof ChunksUploader.State.Unauthorized) {
+                            binding.mds.setText(R.string.observability_unauthorized);
+                        } else {
                             binding.mds.setText(R.string.observability_disconnected);
+                        }
+                    }
                     case State.Initializing ignored ->
-                            binding.mds.setText(R.string.observability_connecting);
+                        binding.mds.setText(R.string.observability_connecting);
                     case State.Ready ignored1 -> {
                         switch (state.getUploadingState()) {
                             case ChunksUploader.State.Idle ignored -> {
@@ -80,6 +86,12 @@ public class ObservabilityFragment extends Fragment implements Injectable {
                             case ChunksUploader.State.InProgress ignored -> {
                                 binding.mds.setText(R.string.observability_uploading);
                                 binding.mdsSent.setText(getResources().getQuantityString(R.plurals.observability_value, state.getChunksUploaded(), state.getChunksUploaded(), state.getBytesUploaded()));
+                                binding.mdsPending.setText(getResources().getQuantityString(R.plurals.observability_value, state.getChunksPending(), state.getChunksPending(), state.getBytesPending()));
+                            }
+                            case ChunksUploader.State.Unauthorized ignored -> {
+                                binding.mds.setText(R.string.observability_unauthorized);
+                                binding.mdsSent.setText(R.string.observability_unauthorized_info);
+                                binding.mdsSent.setTextColor(ResourcesCompat.getColor(getResources(), R.color.colorError, requireContext().getTheme()));
                                 binding.mdsPending.setText(getResources().getQuantityString(R.plurals.observability_value, state.getChunksPending(), state.getChunksPending(), state.getBytesPending()));
                             }
                             case ChunksUploader.State.Suspended suspended ->{

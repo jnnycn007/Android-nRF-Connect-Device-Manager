@@ -17,3 +17,12 @@ internal object AuthorisationHeader {
     }
 
 }
+
+/**
+ * Prints the key in the form of "xxxx...xxxx".
+ */
+internal fun String.shortened() = if (length <= 8) {
+    this
+} else {
+    "${take(4)}...${takeLast(4)}"
+}
