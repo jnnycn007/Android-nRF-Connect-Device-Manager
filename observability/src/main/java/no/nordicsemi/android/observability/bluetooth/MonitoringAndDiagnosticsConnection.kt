@@ -374,7 +374,7 @@ class MonitoringAndDiagnosticsConnection : Log.IdentifiableEmitter<String> {
                 )
             }
         } catch (e: Exception) {
-            logger?.warn(Category.MDS, e) { "Connection attempt failed" }
+            logger?.warn(Category.MDS) { "Connection attempt failed, retrying" }
 
             // Try to connect directly. This should work with RPA.
             centralManager.connect(

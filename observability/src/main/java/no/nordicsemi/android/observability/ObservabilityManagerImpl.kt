@@ -52,9 +52,11 @@ import no.nordicsemi.android.observability.data.ChunksEmitter.State.Ready
 import no.nordicsemi.android.observability.data.PersistentChunkQueue
 import no.nordicsemi.android.observability.internal.Scope
 import no.nordicsemi.android.observability.internet.ChunksUploader
+import no.nordicsemi.android.observability.log.Category
 import no.nordicsemi.kotlin.ble.client.android.CentralManager
 import no.nordicsemi.kotlin.ble.client.android.Peripheral
 import no.nordicsemi.kotlin.ble.environment.android.NativeAndroidEnvironment
+import no.nordicsemi.kotlin.log.Log
 import kotlin.time.Duration.Companion.milliseconds
 
 internal class ObservabilityManagerImpl(
@@ -66,6 +68,13 @@ internal class ObservabilityManagerImpl(
     private val _state = MutableStateFlow(ObservabilityManager.State())
     override val state: StateFlow<ObservabilityManager.State> = _state.asStateFlow()
 
+    override var logger: Log.Sink<Category>? = null
+        set(value) {
+            field = value
+            ownedConnection?.logger = value
+            uploadManager?.logger = value
+        }
+
     private var job: Job? = null
     /** Set only when this manager created and owns the connection, see [connect]. */
     private var ownedConnection: MonitoringAndDiagnosticsConnection? = null
@@ -75,6 +84,7 @@ internal class ObservabilityManagerImpl(
     @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
     override fun connect(source: ChunksEmitter) {
         check(job == null) { "Already connected" }
+        source.logger = source.logger ?: logger
 
         job = Scope.launch {
             var connection: Job? = null
@@ -100,6 +110,7 @@ internal class ObservabilityManagerImpl(
                                 config = state.config,
                                 chunkQueue = chunkQueue
                             ).also { manager ->
+                                manager.logger = logger
                                 manager.status
                                     .onEach {
                                         _state.value = _state.value.copy(uploadingState = it)
@@ -158,6 +169,7 @@ internal class ObservabilityManagerImpl(
         check(job == null) { "Already connected" }
 
         val connection = MonitoringAndDiagnosticsConnection(centralManager, peripheral, Scope)
+            .also { it.logger = logger }
         ownedConnection = connection
         connection.start()
         connect(connection.profile)
@@ -168,6 +180,7 @@ internal class ObservabilityManagerImpl(
         check(job == null) { "Already connected" }
 
         val connection = MonitoringAndDiagnosticsConnection(environment, device, Scope)
+            .also { it.logger = logger }
         ownedConnection = connection
         connection.start()
         connect(connection.profile)

@@ -3,6 +3,8 @@ package no.nordicsemi.android.observability.data
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 import no.nordicsemi.android.observability.ObservabilityManager
+import no.nordicsemi.android.observability.log.Category
+import no.nordicsemi.kotlin.log.Log
 
 /**
  * The API of the source of diagnostics chunks.
@@ -18,6 +20,11 @@ interface ChunksEmitter {
      * A flow of streamed data (chunks).
      */
     val chunks: Flow<ByteArray>
+
+    /**
+     * The log sink for events produced by this emitter.
+     */
+    var logger: Log.Sink<Category>?
 
     /**
      * Represents the state of emitter.

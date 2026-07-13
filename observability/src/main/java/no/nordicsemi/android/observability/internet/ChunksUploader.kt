@@ -43,6 +43,8 @@ import no.nordicsemi.android.observability.data.ChunksConfig
 import no.nordicsemi.android.observability.data.PersistentChunkQueue
 import no.nordicsemi.android.observability.internal.ChunkSenderResult
 import no.nordicsemi.android.observability.internal.send
+import no.nordicsemi.android.observability.log.Category
+import no.nordicsemi.kotlin.log.Log
 import java.net.URL
 import kotlin.time.Duration.Companion.seconds
 
@@ -61,9 +63,9 @@ import kotlin.time.Duration.Companion.seconds
  * @property status A [StateFlow] representing the current status of the manager.
  */
 class ChunksUploader(
-    config: ChunksConfig,
+    private val config: ChunksConfig,
     chunkQueue: ChunkQueue? = null,
-) {
+) : Log.Emitter {
     /**
      * Status of the manager.
      *
@@ -91,6 +93,9 @@ class ChunksUploader(
 
     private val _state = MutableStateFlow<State>(State.Idle)
     val status = _state.asStateFlow()
+
+    /** The logger for logging upload errors. */
+    var logger: Log.Sink<Category>? = null
 
     /**
      * The Memfault Cloud object is used to access the Memfault API.

@@ -46,9 +46,11 @@ import no.nordicsemi.android.observability.data.ChunksConfig
 import no.nordicsemi.android.observability.internal.Scope
 import no.nordicsemi.android.observability.internet.ChunksUploader
 import no.nordicsemi.android.observability.internet.ChunksUploader.State.Idle
+import no.nordicsemi.android.observability.log.Category
 import no.nordicsemi.kotlin.ble.client.android.CentralManager
 import no.nordicsemi.kotlin.ble.client.android.Peripheral
 import no.nordicsemi.kotlin.ble.environment.android.NativeAndroidEnvironment
+import no.nordicsemi.kotlin.log.Log
 
 /**
  * Class responsible for managing connection with the remote IoT device which supports
@@ -100,6 +102,13 @@ interface ObservabilityManager {
      *  - Chunks information.
      */
     val state: StateFlow<State>
+
+    /**
+     * The log sink for events produced by this manager.
+     *
+     * This logger will emit logs from the emitter and uploader.
+     */
+    var logger: Log.Sink<Category>?
 
     /**
      * Function used to start collecting data from an [ChunksEmitter] and uploading them to
