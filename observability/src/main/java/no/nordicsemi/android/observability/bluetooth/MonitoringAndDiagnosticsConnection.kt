@@ -347,8 +347,8 @@ class MonitoringAndDiagnosticsConnection : Log.IdentifiableEmitter<String> {
 
                     // For all other states, we just emit the state.
                     // Note, that ConnectionState.Connecting and ConnectionState.Connected
-                    // emit DeviceState.Connecting state.
-                    // States DeviceState.Initializing and DeviceState.Connected are emitted later,
+                    // emit State.Connecting state.
+                    // States State.Initializing and State.Connected are emitted later,
                     // when the service is initialized. This is to make sure that not supported
                     // devices are not reported as connected.
                     else -> {

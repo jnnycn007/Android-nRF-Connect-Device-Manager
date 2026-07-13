@@ -43,6 +43,7 @@ import no.nordicsemi.android.observability.data.ChunksConfig
 import no.nordicsemi.android.observability.data.PersistentChunkQueue
 import no.nordicsemi.android.observability.internal.ChunkSenderResult
 import no.nordicsemi.android.observability.internal.send
+import no.nordicsemi.android.observability.internal.shortened
 import no.nordicsemi.android.observability.log.Category
 import no.nordicsemi.kotlin.log.Log
 import java.net.URL
