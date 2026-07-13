@@ -43,6 +43,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -141,6 +142,9 @@ internal class ObservabilityManagerImpl(
                         connection?.cancel()
                         connection = null
                     }
+                }
+                .onCompletion {
+                    _state.value = _state.value.copy(state = ChunksEmitter.State.Disconnected)
                 }
                 .launchIn(this)
 
