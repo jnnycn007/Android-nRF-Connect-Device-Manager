@@ -159,8 +159,6 @@ internal class ObservabilityManagerImpl(
                     uploadManager?.uploadChunks()
                 }
                 .launchIn(this)
-
-            awaitCancellation()
         }
     }
 
