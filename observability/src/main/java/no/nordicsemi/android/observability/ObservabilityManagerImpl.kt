@@ -48,6 +48,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsConnection
+import no.nordicsemi.android.observability.bluetooth.MonitoringAndDiagnosticsProfile
 import no.nordicsemi.android.observability.data.ChunksEmitter
 import no.nordicsemi.android.observability.data.ChunksEmitter.State.Ready
 import no.nordicsemi.android.observability.data.PersistentChunkQueue
@@ -113,8 +114,16 @@ internal class ObservabilityManagerImpl(
                             ).also { manager ->
                                 manager.logger = logger
                                 manager.status
-                                    .onEach {
-                                        _state.value = _state.value.copy(uploadingState = it)
+                                    .onEach { state ->
+                                        _state.value = _state.value.copy(uploadingState = state)
+
+                                        // If the Project Key is invalid, shut it down.
+                                        if (state is ChunksUploader.State.Unauthorized) {
+                                            if (source is MonitoringAndDiagnosticsProfile) {
+                                                source.close()
+                                            }
+                                            disconnect()
+                                        }
                                     }
                                     .launchIn(this)
                                 // Upload any chunks that were already in the queue.

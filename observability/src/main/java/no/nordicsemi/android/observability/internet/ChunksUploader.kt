@@ -81,6 +81,9 @@ class ChunksUploader(
         /** The chunks are currently being uploaded. */
         data object InProgress : State
 
+        /** The Project Key is invalid. */
+        data object Unauthorized : State
+
         /**
          * Uploading chunks has been suspended.
          *
@@ -167,7 +170,51 @@ class ChunksUploader(
                 _state.value = State.Idle
             }
             is ChunkSenderResult.Error -> {
-                retryAfter(result.delayInSeconds)
+                // The `result.exception` is always an instance of `Exception`, and the message
+                // starts with "Request failed ".
+                // We need to get the details from the exception message.
+                if (result.exception.message?.startsWith("Request failed ") == true) {
+                    val details = result.exception.message!!.drop(15)
+                    when {
+                        details.contains("null") -> {
+                            // No Internet, try later
+                            logger?.w(Category.CHUNKS) { "No Internet" }
+                            // TODO Register for Network state changes, for now simple retry:
+                            retryAfter(result.delayInSeconds)
+                        }
+
+                        // Return codes from  https://docs.memfault.com/api/upload-chunk#return-value
+
+                        // 403 Forbidden — Project Key missing or invalid.
+                        details.contains("403") -> {
+                            logger?.e(Category.CHUNKS) { "Unauthorized: Invalid Project Key: ${config.authorisationToken.shortened()}" }
+                            // Close, without calling close() not to emit State.Idle.
+                            closed = true
+                            memfaultCloud.deinit()
+                            _state.value = State.Unauthorized
+                            return@coroutineScope
+                        }
+
+                        // 429 Too Many Requests — Rate limited; retry after the Retry-After header interval.
+                        // 503 Service Unavailable — Retry after the Retry-After header interval.
+                        details.contains("429") || details.contains("503") -> {
+                            // The server is busy, retry after the delay.
+                            logger?.w(Category.CHUNKS) { details }
+                            retryAfter(result.delayInSeconds)
+                        }
+
+                        // 400 Bad Request — Malformed request.
+                        // 411 Length Required — Content-Length header missing.
+                        // 413 Payload Too Large — Chunk exceeds maximum size.
+                        // 415 Unsupported Media Type — Unsupported Content-Type.
+                        else -> {
+                            // These should not happen, as the memfault-claud-android lib
+                            // sends correct chunks.
+                            logger?.w(Category.CHUNKS) { details }
+                            retryAfter(result.delayInSeconds)
+                        }
+                    }
+                }
             }
         }
     }

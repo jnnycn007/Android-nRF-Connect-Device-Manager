@@ -7,4 +7,5 @@ import no.nordicsemi.kotlin.log.Log
  */
 enum class Category: Log.Category {
     MDS,
+    CHUNKS,
 }

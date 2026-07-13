@@ -36,6 +36,8 @@ package no.nordicsemi.android.observability.bluetooth
 
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -46,11 +48,11 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.withContext
 import no.nordicsemi.android.observability.ObservabilityManager
-import no.nordicsemi.android.observability.data.ChunksEmitter
 import no.nordicsemi.android.observability.data.ChunksConfig
+import no.nordicsemi.android.observability.data.ChunksEmitter
 import no.nordicsemi.android.observability.internal.AuthorisationHeader
 import no.nordicsemi.android.observability.internal.shortened
 import no.nordicsemi.android.observability.log.Category
@@ -111,6 +113,8 @@ open class MonitoringAndDiagnosticsProfile : Profile.Simple(
      */
     private var peripheral: Peripheral? = null
 
+    private var scope: CoroutineScope? = null
+
     private val _state =
         MutableStateFlow<ChunksEmitter.State>(ChunksEmitter.State.Disconnected)
     private val _chunks = MutableSharedFlow<ByteArray>(
@@ -120,11 +124,14 @@ open class MonitoringAndDiagnosticsProfile : Profile.Simple(
 
     override val state: StateFlow<ChunksEmitter.State> = _state.asStateFlow()
     override val chunks: SharedFlow<ByteArray> = _chunks.asSharedFlow()
+    override var logger: Log.Sink<Category>? = null
 
     /**
-     * The log sink for events produced by this profile.
+     * Closes the
      */
-    var logger: Log.Sink<Category>? = null
+    internal fun close() {
+        scope?.cancel()
+    }
 
     override fun prepare(service: RemoteService) {
         peripheral = service.owner as? Peripheral
@@ -135,6 +142,7 @@ open class MonitoringAndDiagnosticsProfile : Profile.Simple(
     }
 
     override suspend fun CoroutineScope.initialize() {
+        scope = this
         _state.value = ChunksEmitter.State.Initializing
 
         try {
@@ -163,34 +171,46 @@ open class MonitoringAndDiagnosticsProfile : Profile.Simple(
                 .catch { deferred.completeExceptionally(it) }
                 // Emit the chunks to the flow.
                 .onEach { _chunks.emit(it) }
-                // The flow completes when the characteristic is invalidated, i.e. on
-                // disconnection or a service change.
-                .onCompletion {
-                    _state.value = ChunksEmitter.State.Disconnected
-                    logger?.i { "Data collection closed" }
-                    cancel()
-                }
                 .launchIn(this)
 
             // Make sure the notifications are enabled and subscribed to before proceeding.
             deferred.await()
+
+            // Set the state to Ready, so the chunk observer is set up before streaming is started.
+            _state.value = ChunksEmitter.State.Ready(ChunksConfig(authorisationToken, url, deviceId))
 
             // Enable notifications for the data export characteristic.
             logger?.v { "Enabling steaming..." }
             val enableStreamingCommand = byteArrayOf(0x01)
             dataExportCharacteristic.write(enableStreamingCommand, WriteType.WITH_RESPONSE)
 
-            _state.value = ChunksEmitter.State.Ready(ChunksConfig(authorisationToken, url, deviceId))
             logger?.i { "Monitoring & Diagnostics Service started successfully" }
 
-            // No need to await cancellation here: the Peripheral keeps the profile's coroutine
-            // scope running on its own until disconnection or service invalidation.
+            // Await scope cancellation to reset the state to Disconnected.
+            awaitCancellation()
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
             logger?.w { "Monitoring & Diagnostics Service failed to start" }
-            _state.value = ChunksEmitter.State.Disconnected
             cancel(CancellationException(e))
+        } finally {
+            // If the Project Key was invalid, the MDS profile will be closed.
+            // The underlying peripheral may still be connected, so let's make sure
+            // the Data Export characteristic is disabled.
+            withContext(NonCancellable) {
+                try {
+                    if (peripheral?.isConnected == true) {
+                        logger?.v { "Disabling Data export notifications..." }
+                        dataExportCharacteristic.setNotifying(false)
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) {
+                    // Ignore
+                }
+                logger?.i { "Monitoring & Diagnostics Service stopped" }
+                _state.value = ChunksEmitter.State.Disconnected
+            }
         }
     }
 
