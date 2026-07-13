@@ -12,6 +12,8 @@
 
     <string name="observability_connected">Awaiting for chunks…</string>
     <string name="observability_uploading">Uploading…</string>
+    <string name="observability_unauthorized">Unauthorized</string>
+    <string name="observability_unauthorized_info">Invalid Project Key</string>
     <string name="observability_suspended">Suspended for %ds</string>
     <string name="observability_connecting">Connecting…</string>
     <string name="observability_disconnected">Disconnected</string>

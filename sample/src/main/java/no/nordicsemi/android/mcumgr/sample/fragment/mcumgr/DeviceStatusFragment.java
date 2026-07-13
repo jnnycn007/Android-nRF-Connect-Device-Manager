@@ -179,7 +179,7 @@ public class DeviceStatusFragment extends Fragment implements Injectable {
                         binding.observabilitySupported.setText(R.string.status_connecting);
                 case ChunksEmitter.State.Ready ignored ->
                         binding.observabilitySupported.setText(R.string.status_mds_supported);
-                case ChunksEmitter.State.Disconnected disconnected ->
+                case ChunksEmitter.State.Disconnected ignored ->
                         binding.observabilitySupported.setText(R.string.status_disconnected);
                 case null,
                 default -> binding.observabilitySupported.setText(R.string.status_unknown);
