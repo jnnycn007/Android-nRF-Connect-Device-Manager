@@ -50,6 +50,10 @@ nordicPublishing {
 
 android {
     namespace = "no.nordicsemi.android.observability"
+
+    defaultConfig {
+        minSdk = 18
+    }
 }
 
 dependencies {

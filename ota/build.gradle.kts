@@ -49,6 +49,10 @@ nordicPublishing {
 
 android {
     namespace = "no.nordicsemi.android.ota"
+
+    defaultConfig {
+        minSdk = 18
+    }
 }
 
 dependencies {
