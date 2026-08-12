@@ -13,14 +13,17 @@ import no.nordicsemi.android.mcumgr.exception.McuMgrErrorException;
 import no.nordicsemi.android.mcumgr.exception.McuMgrException;
 import no.nordicsemi.android.mcumgr.managers.ImageManager;
 import no.nordicsemi.android.mcumgr.response.img.McuMgrImageStateResponse;
+import no.nordicsemi.android.mcumgr.task.Task;
 import no.nordicsemi.android.mcumgr.task.TaskManager;
 
 class Test extends FirmwareUpgradeTask {
 	private final static Logger LOG = LoggerFactory.getLogger(Test.class);
 
 	private final byte @NotNull [] hash;
+	private final int imageIndex;
 
-	Test(final byte @NotNull [] hash) {
+	Test(final int imageIndex, final byte @NotNull [] hash) {
+		this.imageIndex = imageIndex;
 		this.hash = hash;
 	}
 
@@ -33,6 +36,16 @@ class Test extends FirmwareUpgradeTask {
 	@Override
 	public int getPriority() {
 		return PRIORITY_TEST_AFTER_UPLOAD;
+	}
+
+	@Override
+	public int compareTo(Task<Settings, State> o) {
+		// Test operation should be sent from lowest to highest image index.
+		if (o instanceof Test) {
+			final Test test = (Test) o;
+			return imageIndex - test.imageIndex;
+		}
+		return super.compareTo(o);
 	}
 
 	@Override

@@ -4,8 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 class ConfirmAfterReset extends Confirm {
 
-	ConfirmAfterReset(final byte @NotNull [] hash) {
-		super(hash);
+	ConfirmAfterReset(final int imageIndex, final byte @NotNull [] hash) {
+		super(imageIndex, hash);
 	}
 
 	@Override
