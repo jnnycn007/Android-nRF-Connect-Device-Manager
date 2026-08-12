@@ -19,6 +19,7 @@ internal sealed class UploadResult {
     ) : UploadResult()
 }
 
+@IgnorableReturnValue
 internal inline fun UploadResult.onSuccess(
     action: (response: UploadResponse) -> Unit
 ): UploadResult {
@@ -28,6 +29,7 @@ internal inline fun UploadResult.onSuccess(
     return this
 }
 
+@IgnorableReturnValue
 internal inline fun UploadResult.onErrorOrFailure(action: (throwable: Throwable) -> Unit): UploadResult {
     when (this) {
         is UploadResult.Response -> {
