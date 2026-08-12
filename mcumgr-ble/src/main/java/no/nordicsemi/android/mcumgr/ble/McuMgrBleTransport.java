@@ -27,6 +27,7 @@ import android.util.Log;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -575,6 +576,15 @@ public class McuMgrBleTransport extends BleManager implements McuMgrTransport {
             return false;
         }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return scanApi21(name, callback);
+        } else {
+            return scanApi18(name, callback);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private boolean scanApi21(@NonNull String name, @Nullable ModeChangeCallback callback) {
         // For BLE transport, changing the mode means scanning for a device with a given name.
         // It is intended to switch between application and bootloader modes.
         // In the bootloader mode (Firmware Loader) the advertises changes its Bluetooth Address,
@@ -624,6 +634,43 @@ public class McuMgrBleTransport extends BleManager implements McuMgrTransport {
         }, 3000);
 
         scanner.startScan(filters, settings, scanCallback);
+        return true;
+    }
+
+    @SuppressWarnings("deprecation")
+    private boolean scanApi18(@NonNull String name, @Nullable ModeChangeCallback callback) {
+        // For BLE transport, changing the mode means scanning for a device with a given name.
+        // It is intended to switch between application and bootloader modes.
+        // In the bootloader mode (Firmware Loader) the advertises changes its Bluetooth Address,
+        // hence the need to scan for it.
+        final BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+        if (adapter == null) {
+            return false;
+        }
+
+        final Handler handler = new Handler(Looper.getMainLooper());
+
+        final BluetoothAdapter.LeScanCallback scanCallback = new BluetoothAdapter.LeScanCallback() {
+            @Override
+            public void onLeScan(BluetoothDevice device, int rssi, byte[] scanRecord) {
+                if (device.getName() != null && device.getName().equals(name)) {
+                    handler.removeCallbacksAndMessages(null);
+                    adapter.stopLeScan(this);
+                    mDeviceBootloader = device;
+                    if (callback != null)
+                        callback.onModeChanged();
+                }
+            }
+        };
+
+        // This code will run if the scan is not stopped within the timeout.
+        handler.postDelayed(() -> {
+            adapter.stopLeScan(scanCallback);
+            if (callback != null)
+                callback.onError(new McuMgrException("Scan for '" + name + "' timed out"));
+        }, 3000);
+
+        adapter.startLeScan(scanCallback);
         return true;
     }
 
