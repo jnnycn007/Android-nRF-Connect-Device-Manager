@@ -29,6 +29,10 @@ nordicPublishing {
 android {
     namespace = "no.nordicsemi.android.mcumgr"
 
+    defaultConfig {
+        minSdk = 18
+    }
+
     compileOptions {
         // for now and foreseeable future we intentionally set the build system to emit bytecode that is compatible with
         // java11 so as to ensure that we don't break the "classic xamarin (mono)" toolchain for C# android-java-bindings

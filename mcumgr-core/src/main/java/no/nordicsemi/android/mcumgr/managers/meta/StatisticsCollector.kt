@@ -99,10 +99,11 @@ private class StatCollection(
      * Start the stat collection for a given list of statistics groups.
      *
      * Start must only be called once per collection and must be provided at least one group to
-     * collect from. Otherwise this method will throw an error.
+     * collect from. Otherwise, this method will throw an error.
      *
      * @throws IllegalArgumentException If the stat collection has already been started.
      */
+    @IgnorableReturnValue
     fun start(groupNames: List<String>): Cancellable {
         check(started.compareAndSet(false, true)) { "Cannot call start() twice." }
         if (groupNames.isEmpty()) {

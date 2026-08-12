@@ -34,6 +34,7 @@ plugins {
     alias(libs.plugins.nordic.kotlin)
     alias(libs.plugins.nordic.publish.android)
     alias(libs.plugins.ksp)
+    id("androidx.room")
 }
 
 group = "no.nordicsemi.android"
@@ -50,6 +51,14 @@ nordicPublishing {
 
 android {
     namespace = "no.nordicsemi.android.observability"
+
+    defaultConfig {
+        minSdk = 18
+    }
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 dependencies {
