@@ -1,5 +1,7 @@
 package no.nordicsemi.android.mcumgr.dfu.mcuboot.task;
 
+import android.util.Log;
+
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -115,7 +117,7 @@ class Validate extends FirmwareUpgradeTask {
 	 * @param allowRevert Whether the bootloader requires confirming images.
 	 * @param forcePrimarySlot Whether the image should be sent to the primary slot (0) despite
 	 *                         the flags. This is a case for Firmware Loader, where the secondary
-	 *                         slot is used for the firmware loader itself and we always update
+	 *                         slot is used for the firmware loader itself, and we always update
 	 *                         the primary slot.
 	 */
 	private void validate(@NotNull final TaskManager<Settings, State> performer,
@@ -206,7 +208,7 @@ class Validate extends FirmwareUpgradeTask {
 							confirmed = slot.confirmed;
 							active = slot.active;
 
-							// If the image has been found on its target slot and it's confirmed,
+							// If the image has been found on its target slot, and it's confirmed,
 							// we just need to restart the device in order for it to be swapped back to
 							// primary slot.
 							if (mcuMgrImage.needsConfirmation() && confirmed && slot.slot == image.slot && !noSwap) {
@@ -315,7 +317,7 @@ class Validate extends FirmwareUpgradeTask {
 								// confirmed (another image is under test), and isn't the currently
 								// running image, send test command and update the flag.
 								if (!pending && !confirmed && !active) {
-									performer.enqueue(new Test(mcuMgrImage.getHash()));
+									performer.enqueue(new Test(imageIndex, mcuMgrImage.getHash()));
 									pending = true;
 								}
 								// If the image is pending, reset is required.
@@ -323,7 +325,7 @@ class Validate extends FirmwareUpgradeTask {
 									resetRequired = true;
 								}
 								if (!permanent && !confirmed) {
-									performer.enqueue(new ConfirmAfterReset(mcuMgrImage.getHash()));
+									performer.enqueue(new ConfirmAfterReset(imageIndex, mcuMgrImage.getHash()));
 								}
 								break;
 							}
@@ -332,7 +334,7 @@ class Validate extends FirmwareUpgradeTask {
 								// confirmed (another image is under test), and isn't the currently
 								// running image, send test command and update the flag.
 								if (!pending && !confirmed && !active) {
-									performer.enqueue(new Test(mcuMgrImage.getHash()));
+									performer.enqueue(new Test(imageIndex, mcuMgrImage.getHash()));
 									pending = true;
 								}
 								// If the image is pending, reset is required.
@@ -344,7 +346,8 @@ class Validate extends FirmwareUpgradeTask {
 							case CONFIRM_ONLY: {
 								// If the firmware is not confirmed yet, confirm t.
 								if (!permanent && !confirmed) {
-									performer.enqueue(new Confirm(mcuMgrImage.getHash()));
+									Log.i("Validate", "Adding Confirm task to " + imageIndex);
+									performer.enqueue(new Confirm(imageIndex, mcuMgrImage.getHash()));
 									permanent = true;
 								}
 								if (permanent) {

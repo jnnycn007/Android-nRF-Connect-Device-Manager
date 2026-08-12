@@ -14,18 +14,22 @@ import no.nordicsemi.android.mcumgr.exception.McuMgrErrorException;
 import no.nordicsemi.android.mcumgr.exception.McuMgrException;
 import no.nordicsemi.android.mcumgr.managers.ImageManager;
 import no.nordicsemi.android.mcumgr.response.img.McuMgrImageStateResponse;
+import no.nordicsemi.android.mcumgr.task.Task;
 import no.nordicsemi.android.mcumgr.task.TaskManager;
 
 class Confirm extends FirmwareUpgradeTask {
 	private final static Logger LOG = LoggerFactory.getLogger(Confirm.class);
 
 	private final byte @Nullable [] hash;
+	private final int imageIndex;
 
-	Confirm(final byte @NotNull [] hash) {
+	Confirm(final int imageIndex, final byte @NotNull [] hash) {
+		this.imageIndex = imageIndex;
 		this.hash = hash;
 	}
 
 	Confirm() {
+		this.imageIndex = 0;
 		this.hash = null;
 	}
 
@@ -38,6 +42,16 @@ class Confirm extends FirmwareUpgradeTask {
 	@Override
 	public int getPriority() {
 		return PRIORITY_CONFIRM_AFTER_UPLOAD;
+	}
+
+	@Override
+	public int compareTo(Task<Settings, State> o) {
+		// Confirm operation should be sent from lowest to highest image index.
+		if (o instanceof Confirm) {
+			final Confirm confirm = (Confirm) o;
+			return imageIndex - confirm.imageIndex;
+		}
+		return super.compareTo(o);
 	}
 
 	@Override

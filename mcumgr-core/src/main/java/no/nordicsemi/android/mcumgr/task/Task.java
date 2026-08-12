@@ -32,7 +32,7 @@ public abstract class Task<S, State> implements Comparable<Task<S, State>> {
 	}
 
 	@Override
-	public final int compareTo(final Task<S, State> o) {
+	public int compareTo(final Task<S, State> o) {
 		return getPriority() - o.getPriority();
 	}
 }
