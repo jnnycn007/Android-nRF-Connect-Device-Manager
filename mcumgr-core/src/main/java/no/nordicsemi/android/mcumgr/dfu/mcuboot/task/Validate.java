@@ -115,7 +115,7 @@ class Validate extends FirmwareUpgradeTask {
 	 * @param allowRevert Whether the bootloader requires confirming images.
 	 * @param forcePrimarySlot Whether the image should be sent to the primary slot (0) despite
 	 *                         the flags. This is a case for Firmware Loader, where the secondary
-	 *                         slot is used for the firmware loader itself and we always update
+	 *                         slot is used for the firmware loader itself, and we always update
 	 *                         the primary slot.
 	 */
 	private void validate(@NotNull final TaskManager<Settings, State> performer,
@@ -206,7 +206,7 @@ class Validate extends FirmwareUpgradeTask {
 							confirmed = slot.confirmed;
 							active = slot.active;
 
-							// If the image has been found on its target slot and it's confirmed,
+							// If the image has been found on its target slot, and it's confirmed,
 							// we just need to restart the device in order for it to be swapped back to
 							// primary slot.
 							if (mcuMgrImage.needsConfirmation() && confirmed && slot.slot == image.slot && !noSwap) {
