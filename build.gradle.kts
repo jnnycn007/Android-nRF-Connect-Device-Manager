@@ -20,6 +20,7 @@ plugins {
     alias(libs.plugins.nordic.feature.hilt) apply false
     alias(libs.plugins.nordic.kotlin) apply false
     alias(libs.plugins.nordic.publish.android) apply false
+    id("androidx.room") version "2.7.2" apply false
 }
 
 // Configure main Dokka page
